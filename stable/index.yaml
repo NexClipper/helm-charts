@@ -1,0 +1,109 @@
+apiVersion: v1
+entries:
+  alertmanager:
+  - apiVersion: v2
+    appVersion: v0.21.0
+    created: "2020-11-03T16:09:54.181163+09:00"
+    description: The Alertmanager handles alerts sent by client applications such
+      as the Prometheus server.
+    digest: dace7be175286503b1729c5b7bcd17281f1f7d37e38ccd5d0ced03427f968e16
+    home: https://prometheus.io/
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    maintainers:
+    - email: monotek23@gmail.com
+      name: monotek
+    - email: naseem@transit.app
+      name: naseemkullah
+    name: alertmanager
+    sources:
+    - https://github.com/prometheus/alertmanager
+    type: application
+    urls:
+    - alertmanager-0.1.4.tgz
+    version: 0.1.4
+  grafana:
+  - apiVersion: v2
+    appVersion: 7.3.1
+    created: "2020-11-03T16:09:54.187602+09:00"
+    description: The leading tool for querying and visualizing time series and metrics.
+    digest: 9ef078f6626a1c04d5addeee8c17c323afd61d9b77c77cf480987e3b00ddae4c
+    home: https://grafana.net
+    icon: https://raw.githubusercontent.com/grafana/grafana/master/public/img/logo_transparent_400x.png
+    kubeVersion: ^1.8.0-0
+    maintainers:
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    - email: rluckie@cisco.com
+      name: rtluckie
+    - email: maor.friedman@redhat.com
+      name: maorfr
+    - email: miroslav.hadzhiev@gmail.com
+      name: Xtigyro
+    name: grafana
+    sources:
+    - https://github.com/grafana/grafana
+    type: application
+    urls:
+    - grafana-6.1.0.tgz
+    version: 6.1.0
+  prometheus:
+  - apiVersion: v1
+    appVersion: 2.21.0
+    created: "2020-11-03T16:09:54.194988+09:00"
+    dependencies:
+    - condition: kubeStateMetrics.enabled
+      name: kube-state-metrics
+      repository: https://charts.helm.sh/stable/
+      version: 2.8.*
+    description: Prometheus is a monitoring system and time series database.
+    digest: 51ab8ca22233ba03368b0f4ae8f3a0e9120a7d27913e10cbc30610d9f833b823
+    home: https://prometheus.io/
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    maintainers:
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    - email: miroslav.hadzhiev@gmail.com
+      name: Xtigyro
+    - email: monotek23@gmail.com
+      name: monotek
+    - email: naseem@transit.app
+      name: naseemkullah
+    name: prometheus
+    sources:
+    - https://github.com/prometheus/alertmanager
+    - https://github.com/prometheus/prometheus
+    - https://github.com/prometheus/pushgateway
+    - https://github.com/prometheus/node_exporter
+    - https://github.com/kubernetes/kube-state-metrics
+    urls:
+    - prometheus-11.16.7.tgz
+    version: 11.16.7
+  promscale:
+  - apiVersion: v2
+    created: "2020-11-03T16:09:54.195831+09:00"
+    description: Promscale Connector deployment
+    digest: 9ff873912d66c2796a984f38abeb20198848c7934116e09dffb170dca3645e9a
+    name: promscale
+    urls:
+    - promscale-0.1.1.tgz
+    version: 0.1.1
+  timescaledb-single:
+  - apiVersion: v1
+    created: "2020-11-03T16:09:54.200571+09:00"
+    description: TimescaleDB HA Deployment.
+    digest: 1948357489eff42eb81bcb59a465615e20b791dc54178d1bbaf1a650b7f46de1
+    home: https://github.com/timescale/timescaledb-kubernetes
+    maintainers:
+    - email: support@timescale.com
+      name: TimescaleDB
+    name: timescaledb-single
+    sources:
+    - https://github.com/timescale/timescaledb-kubernetes
+    - https://github.com/timescale/timescaledb-docker-ha
+    - https://github.com/zalando/patroni
+    urls:
+    - timescaledb-single-0.7.1.tgz
+    version: 0.7.1
+generated: "2020-11-03T16:09:54.178514+09:00"
