@@ -16,8 +16,10 @@ timescaledb-single:
   replicaCount: 1
   persistentVolumes:
     data:
+      storageClass: "rook-ceph-block"
       size: 10Gi
     wal:
+      storageClass: "rook-ceph-block"
       size: 2Gi
 
 # Values for configuring the deployment of the Promscale Connector
@@ -62,11 +64,12 @@ promscale:
 prometheus:
   enabled: true
   alertmanager:
-    enabled: true
+    enabled: false
   pushgateway:
-    enabled: true
+    enabled: false
   server:
     persistentVolume:
+      storageClass: "rook-ceph-block"
     # we provide a config map which will have the
     # promscale connector already configured as
     # a remote endpoint for read/write (if enabled)
