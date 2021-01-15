@@ -100,15 +100,15 @@ entries:
       version: 0.5.5
     - condition: promscale.enabled
       name: promscale
-      repository: https://charts.timescale.com
+      repository: https://nexclipper.github.io/helm-charts
       version: 0.1.4
     - condition: prometheus.enabled
       name: prometheus
-      repository: https://prometheus-community.github.io/helm-charts
+      repository: https://nexclipper.github.io/helm-charts
       version: 11.16.7
     - condition: grafana.enabled
       name: grafana
-      repository: https://grafana.github.io/helm-charts
+      repository: https://nexclipper.github.io/helm-charts
       version: 6.1.0
     description: A Helm chart for tobs, The Observability Stack for Kubernetes
     digest: 4fb638ac2f3cb1fdf8e5252f9cfc2e5eb4cf49e1d9524946081785161adf0758
