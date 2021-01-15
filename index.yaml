@@ -3,10 +3,10 @@ entries:
   alertmanager:
   - apiVersion: v2
     appVersion: v0.21.0
-    created: "2020-11-09T10:58:47.120683+09:00"
+    created: "2021-01-15T15:13:56.798716+09:00"
     description: The Alertmanager handles alerts sent by client applications such
       as the Prometheus server.
-    digest: dace7be175286503b1729c5b7bcd17281f1f7d37e38ccd5d0ced03427f968e16
+    digest: 021cdbfcc1d223ce9241a9802ec5edb5b21cb040a4bf394efa127e3f86a18674
     home: https://prometheus.io/
     icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
     maintainers:
@@ -19,14 +19,14 @@ entries:
     - https://github.com/prometheus/alertmanager
     type: application
     urls:
-    - alertmanager-0.1.4.tgz
-    version: 0.1.4
+    - alertmanager-0.3.0.tgz
+    version: 0.3.0
   grafana:
   - apiVersion: v2
     appVersion: 7.3.1
-    created: "2020-11-09T10:58:47.12296+09:00"
+    created: "2021-01-15T15:13:56.804438+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
-    digest: 9ef078f6626a1c04d5addeee8c17c323afd61d9b77c77cf480987e3b00ddae4c
+    digest: 90e02611231bcfaaa9d59ac92fb93acd2cfa48c87b1816b303397f6a91bcfea7
     home: https://grafana.net
     icon: https://raw.githubusercontent.com/grafana/grafana/master/public/img/logo_transparent_400x.png
     kubeVersion: ^1.8.0-0
@@ -49,14 +49,14 @@ entries:
   prometheus:
   - apiVersion: v1
     appVersion: 2.21.0
-    created: "2020-11-09T10:58:47.130806+09:00"
+    created: "2021-01-15T15:13:56.809563+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
       repository: https://charts.helm.sh/stable/
       version: 2.8.*
     description: Prometheus is a monitoring system and time series database.
-    digest: 51ab8ca22233ba03368b0f4ae8f3a0e9120a7d27913e10cbc30610d9f833b823
+    digest: db456bebd7b6ba0944bbc800e011b9abfa58a5ef24e954ff8de06355e66f7ed7
     home: https://prometheus.io/
     icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
     maintainers:
@@ -82,60 +82,39 @@ entries:
     version: 11.16.7
   promscale:
   - apiVersion: v2
-    created: "2020-11-09T10:58:47.131348+09:00"
+    created: "2021-01-15T15:13:56.810797+09:00"
     description: Promscale Connector deployment
-    digest: 9ff873912d66c2796a984f38abeb20198848c7934116e09dffb170dca3645e9a
+    digest: 1fb1f9c5e9ec74c5e70ca0c2dd337d66b999a870b5259326f366b95ae06804ac
     name: promscale
     urls:
-    - promscale-0.1.1.tgz
-    version: 0.1.1
-  timescaledb-single:
-  - apiVersion: v1
-    created: "2020-11-09T10:58:47.134687+09:00"
-    description: TimescaleDB HA Deployment.
-    digest: 1948357489eff42eb81bcb59a465615e20b791dc54178d1bbaf1a650b7f46de1
-    home: https://github.com/timescale/timescaledb-kubernetes
-    maintainers:
-    - email: support@timescale.com
-      name: TimescaleDB
-    name: timescaledb-single
-    sources:
-    - https://github.com/timescale/timescaledb-kubernetes
-    - https://github.com/timescale/timescaledb-docker-ha
-    - https://github.com/zalando/patroni
-    urls:
-    - timescaledb-single-0.7.1.tgz
-    version: 0.7.1
+    - promscale-0.1.4.tgz
+    version: 0.1.4
   tobs:
   - apiVersion: v2
-    appVersion: 0.1.2
-    created: "2020-11-09T10:58:47.155136+09:00"
+    appVersion: 0.1.4
+    created: "2021-01-15T15:13:56.823747+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
-      repository: https://nexclipper.github.io/helm-charts
+      repository: https://charts.timescale.com
       version: 0.5.5
     - condition: promscale.enabled
       name: promscale
-      repository: https://nexclipper.github.io/helm-charts
-      version: 0.1.1
+      repository: https://charts.timescale.com
+      version: 0.1.4
     - condition: prometheus.enabled
       name: prometheus
-      repository: https://nexclipper.github.io/helm-charts
-      version: 11.6.7
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 11.16.7
     - condition: grafana.enabled
       name: grafana
-      repository: https://nexclipper.github.io/helm-charts
+      repository: https://grafana.github.io/helm-charts
       version: 6.1.0
-    - condition: alertmanager.enabled
-      name: alertmanager
-      repository: https://nexclipper.github.io/helm-charts
-      version: 0.1.4
     description: A Helm chart for tobs, The Observability Stack for Kubernetes
-    digest: 6b9a91c7952055238c153708b80d592a724fe9e221d744a9390e74fa3014eb66
+    digest: 4fb638ac2f3cb1fdf8e5252f9cfc2e5eb4cf49e1d9524946081785161adf0758
     name: tobs
     type: application
     urls:
-    - tobs-0.1.2.tgz
-    version: 0.1.2
-generated: "2020-11-09T10:58:47.119236+09:00"
+    - tobs-0.1.4.tgz
+    version: 0.1.4
+generated: "2021-01-15T15:13:56.796491+09:00"

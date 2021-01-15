@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "connector.fullname" . }}
+  labels:
+    app: {{ template "connector.fullname" . }}
+    chart: {{ template "connector.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "connector.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "connector.fullname" . }}
+      {{ if .Values.prometheus.enabled }}
+      annotations: {{ .Values.prometheus.annotations | toYaml | nindent 8 }}
+      {{ end }}
+    spec:
+      containers:
+        - image: {{ .Values.image }}
+          imagePullPolicy: IfNotPresent
+          name: promscale-connector
+          {{- if .Values.args }}
+          args:
+            {{- range .Values.args }}
+              - {{ . }}
+            {{- end }}
+          {{- end}}
+          {{- if .Values.resources }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          {{- end }}
+          ports:
+            - containerPort: 9201
+              name: connector-port
+          env:
+            {{- if not .Values.connection.uri.secretTemplate }}
+            - name: PROMSCALE_DB_PORT
+              value: {{ .Values.connection.port | quote }}
+            - name: PROMSCALE_DB_USER
+              value: {{ .Values.connection.user }}
+            - name: PROMSCALE_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ tpl .Values.connection.password.secretTemplate . }}
+                  key: {{ .Values.connection.user }}
+            - name: PROMSCALE_DB_HOST
+              value: {{ tpl .Values.connection.host.nameTemplate . }}
+            - name: PROMSCALE_DB_NAME
+              value: {{ .Values.connection.dbName }}
+            - name: PROMSCALE_DB_SSL_MODE
+              value: {{ .Values.connection.sslMode }}
+            {{- else }}
+            - name: PROMSCALE_DB_URI
+              valueFrom:
+                secretKeyRef:
+                  name: {{ tpl .Values.connection.uri.secretTemplate . }}
+                  key: {{ .Values.connection.uri.key }}
+            {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+      {{ toYaml . | indent 2 }}
+      {{- end }}
