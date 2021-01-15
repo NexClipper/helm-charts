@@ -1,2 +1,5 @@
 tobs/*
-tobs/charts
+alertmanager/*
+grafana/*
+prometheus/*
+promscale/*
