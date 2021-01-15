@@ -3,7 +3,7 @@ entries:
   alertmanager:
   - apiVersion: v2
     appVersion: v0.21.0
-    created: "2021-01-15T15:13:56.798716+09:00"
+    created: "2021-01-15T16:15:48.908903+09:00"
     description: The Alertmanager handles alerts sent by client applications such
       as the Prometheus server.
     digest: 021cdbfcc1d223ce9241a9802ec5edb5b21cb040a4bf394efa127e3f86a18674
@@ -24,7 +24,7 @@ entries:
   grafana:
   - apiVersion: v2
     appVersion: 7.3.1
-    created: "2021-01-15T15:13:56.804438+09:00"
+    created: "2021-01-15T16:15:48.911727+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: 90e02611231bcfaaa9d59ac92fb93acd2cfa48c87b1816b303397f6a91bcfea7
     home: https://grafana.net
@@ -49,7 +49,7 @@ entries:
   prometheus:
   - apiVersion: v1
     appVersion: 2.21.0
-    created: "2021-01-15T15:13:56.809563+09:00"
+    created: "2021-01-15T16:15:48.918581+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -82,7 +82,7 @@ entries:
     version: 11.16.7
   promscale:
   - apiVersion: v2
-    created: "2021-01-15T15:13:56.810797+09:00"
+    created: "2021-01-15T16:15:48.919748+09:00"
     description: Promscale Connector deployment
     digest: 1fb1f9c5e9ec74c5e70ca0c2dd337d66b999a870b5259326f366b95ae06804ac
     name: promscale
@@ -92,7 +92,7 @@ entries:
   tobs:
   - apiVersion: v2
     appVersion: 0.1.4
-    created: "2021-01-15T15:13:56.823747+09:00"
+    created: "2021-01-15T16:15:48.931985+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -110,11 +110,11 @@ entries:
       name: grafana
       repository: https://nexclipper.github.io/helm-charts
       version: 6.1.0
-    description: A Helm chart for tobs, The Observability Stack for Kubernetes
-    digest: 4fb638ac2f3cb1fdf8e5252f9cfc2e5eb4cf49e1d9524946081785161adf0758
+    description: NexClipper Helm chart for tobs, The Observability Stack for Kubernetes
+    digest: 1258e112b693493a4e884eb4586008c43fdb8e6bbbabf3d9972779e8d9630e0d
     name: tobs
     type: application
     urls:
     - tobs-0.1.4.tgz
     version: 0.1.4
-generated: "2021-01-15T15:13:56.796491+09:00"
+generated: "2021-01-15T16:15:48.89583+09:00"
