@@ -3,7 +3,7 @@ entries:
   alertmanager:
   - apiVersion: v2
     appVersion: v0.21.0
-    created: "2021-01-20T12:14:55.493755+09:00"
+    created: "2021-01-20T12:49:40.585939+09:00"
     description: The Alertmanager handles alerts sent by client applications such
       as the Prometheus server.
     digest: 021cdbfcc1d223ce9241a9802ec5edb5b21cb040a4bf394efa127e3f86a18674
@@ -24,7 +24,7 @@ entries:
   grafana:
   - apiVersion: v2
     appVersion: 7.3.1
-    created: "2021-01-20T12:14:55.496602+09:00"
+    created: "2021-01-20T12:49:40.588517+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: 90e02611231bcfaaa9d59ac92fb93acd2cfa48c87b1816b303397f6a91bcfea7
     home: https://grafana.net
@@ -49,7 +49,7 @@ entries:
   prometheus:
   - apiVersion: v1
     appVersion: 2.21.0
-    created: "2021-01-20T12:14:55.504422+09:00"
+    created: "2021-01-20T12:49:40.598839+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -82,7 +82,7 @@ entries:
     version: 11.16.7
   promscale:
   - apiVersion: v2
-    created: "2021-01-20T12:14:55.505717+09:00"
+    created: "2021-01-20T12:49:40.599907+09:00"
     description: Promscale Connector deployment
     digest: 1fb1f9c5e9ec74c5e70ca0c2dd337d66b999a870b5259326f366b95ae06804ac
     name: promscale
@@ -92,7 +92,7 @@ entries:
   tobs:
   - apiVersion: v2
     appVersion: 0.1.4
-    created: "2021-01-20T12:14:55.517527+09:00"
+    created: "2021-01-20T12:49:40.613447+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -112,10 +112,10 @@ entries:
       version: 6.1.0
     description: NexClipper(0120) Helm chart for tobs, The Observability Stack for
       Kubernetes
-    digest: c1f4740c94360444f047c1320757b9743975752ebf8bf1a99dcfd7bd8767f0f0
+    digest: e47cd8b18ec7f2800eb88b1e4adcc4685171c9024ead26a4942b5afc06b8ff2a
     name: tobs
     type: application
     urls:
     - tobs-0.1.4.tgz
     version: 0.1.4
-generated: "2021-01-20T12:14:55.491901+09:00"
+generated: "2021-01-20T12:49:40.582429+09:00"
