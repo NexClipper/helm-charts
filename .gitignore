@@ -3,3 +3,4 @@ alertmanager/*
 grafana/*
 prometheus/*
 promscale/*
+my_values.yml
