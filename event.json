@@ -1,0 +1,1292 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "action": "Binding",
+      "apiVersion": "v1",
+      "eventTime": "2021-01-20T07:00:07.826143Z",
+      "firstTimestamp": null,
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "nc-promscale-maintenance-1611126000-s9zv7",
+        "namespace": "nexclipper",
+        "resourceVersion": "866509",
+        "uid": "a7b80420-6164-4138-8f59-7d5704a12362"
+      },
+      "kind": "Event",
+      "lastTimestamp": null,
+      "message": "Successfully assigned nexclipper/nc-promscale-maintenance-1611126000-s9zv7 to docker-desktop",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:00:07Z",
+        "managedFields": [
+          {
+            "apiVersion": "events.k8s.io/v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:action": {},
+              "f:eventTime": {},
+              "f:note": {},
+              "f:reason": {},
+              "f:regarding": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:reportingController": {},
+              "f:reportingInstance": {},
+              "f:type": {}
+            },
+            "manager": "kube-scheduler",
+            "operation": "Update",
+            "time": "2021-01-20T07:00:07Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance-1611126000-s9zv7.165bde9168df5be8",
+        "namespace": "nexclipper",
+        "resourceVersion": "866513",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance-1611126000-s9zv7.165bde9168df5be8",
+        "uid": "6e20066c-49f8-42bc-884d-503271f9f596"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "default-scheduler-docker-desktop",
+      "source": {},
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:00:07Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1beta1",
+        "kind": "CronJob",
+        "name": "nc-promscale-maintenance",
+        "namespace": "nexclipper",
+        "resourceVersion": "863376",
+        "uid": "c28ad677-47e8-43dd-ad83-e2c9c657fc64"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:00:07Z",
+      "message": "Created job nc-promscale-maintenance-1611126000",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:00:07Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "time": "2021-01-20T07:00:07Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance.165bde91663334f0",
+        "namespace": "nexclipper",
+        "resourceVersion": "866508",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance.165bde91663334f0",
+        "uid": "cf84659b-0a06-4d28-a532-db97d19d1599"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "cronjob-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:00:07Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1",
+        "kind": "Job",
+        "name": "nc-promscale-maintenance-1611126000",
+        "namespace": "nexclipper",
+        "resourceVersion": "866506",
+        "uid": "9078f11f-63ac-4876-8c16-9f58e6332090"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:00:07Z",
+      "message": "Created pod: nc-promscale-maintenance-1611126000-s9zv7",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:00:07Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "time": "2021-01-20T07:00:07Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance-1611126000.165bde9167a78188",
+        "namespace": "nexclipper",
+        "resourceVersion": "866510",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance-1611126000.165bde9167a78188",
+        "uid": "19eca466-7a48-4a11-9d22-c8bf37c9be3e"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "job-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:00:09Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{promscale-maintenance}",
+        "kind": "Pod",
+        "name": "nc-promscale-maintenance-1611126000-s9zv7",
+        "namespace": "nexclipper",
+        "resourceVersion": "866511",
+        "uid": "a7b80420-6164-4138-8f59-7d5704a12362"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:00:09Z",
+      "message": "Created container promscale-maintenance",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:00:09Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:fieldPath": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kubelet",
+            "operation": "Update",
+            "time": "2021-01-20T07:00:09Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance-1611126000-s9zv7.165bde91c60710cc",
+        "namespace": "nexclipper",
+        "resourceVersion": "866519",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance-1611126000-s9zv7.165bde91c60710cc",
+        "uid": "45fbaee4-b78a-4c70-bc85-f9f252bc9a49"
+      },
+      "reason": "Created",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "kubelet",
+        "host": "docker-desktop"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:00:09Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{promscale-maintenance}",
+        "kind": "Pod",
+        "name": "nc-promscale-maintenance-1611126000-s9zv7",
+        "namespace": "nexclipper",
+        "resourceVersion": "866511",
+        "uid": "a7b80420-6164-4138-8f59-7d5704a12362"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:00:09Z",
+      "message": "Started container promscale-maintenance",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:00:09Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:fieldPath": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kubelet",
+            "operation": "Update",
+            "time": "2021-01-20T07:00:09Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance-1611126000-s9zv7.165bde91d12f8268",
+        "namespace": "nexclipper",
+        "resourceVersion": "866520",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance-1611126000-s9zv7.165bde91d12f8268",
+        "uid": "a4b1a8e3-0885-43d8-b148-682b69a9cd54"
+      },
+      "reason": "Started",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "kubelet",
+        "host": "docker-desktop"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:00:09Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{promscale-maintenance}",
+        "kind": "Pod",
+        "name": "nc-promscale-maintenance-1611126000-s9zv7",
+        "namespace": "nexclipper",
+        "resourceVersion": "866511",
+        "uid": "a7b80420-6164-4138-8f59-7d5704a12362"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:00:09Z",
+      "message": "Container image \"postgres:12-alpine\" already present on machine",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:00:09Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:fieldPath": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kubelet",
+            "operation": "Update",
+            "time": "2021-01-20T07:00:09Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance-1611126000-s9zv7.165bde91bc9df9d8",
+        "namespace": "nexclipper",
+        "resourceVersion": "866518",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance-1611126000-s9zv7.165bde91bc9df9d8",
+        "uid": "6e906825-8cf0-4ffc-8967-73febbf72788"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "kubelet",
+        "host": "docker-desktop"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:00:10Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1",
+        "kind": "Job",
+        "name": "nc-promscale-maintenance-1611126000",
+        "namespace": "nexclipper",
+        "resourceVersion": "866512",
+        "uid": "9078f11f-63ac-4876-8c16-9f58e6332090"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:00:10Z",
+      "message": "Job completed",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:00:10Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "time": "2021-01-20T07:00:10Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance-1611126000.165bde91fee5b614",
+        "namespace": "nexclipper",
+        "resourceVersion": "866522",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance-1611126000.165bde91fee5b614",
+        "uid": "4211def8-9ce3-4ec2-879e-3c8612a3c076"
+      },
+      "reason": "Completed",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "job-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:00:11Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "nc-promscale-maintenance-1611126000-s9zv7",
+        "namespace": "nexclipper",
+        "resourceVersion": "866511",
+        "uid": "a7b80420-6164-4138-8f59-7d5704a12362"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:00:11Z",
+      "message": "Pod sandbox changed, it will be killed and re-created.",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:00:11Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kubelet",
+            "operation": "Update",
+            "time": "2021-01-20T07:00:11Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance-1611126000-s9zv7.165bde923fc9e920",
+        "namespace": "nexclipper",
+        "resourceVersion": "866527",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance-1611126000-s9zv7.165bde923fc9e920",
+        "uid": "0d174bb9-8623-475d-8e37-e06ebd24f47b"
+      },
+      "reason": "SandboxChanged",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "kubelet",
+        "host": "docker-desktop"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:00:17Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1beta1",
+        "kind": "CronJob",
+        "name": "nc-promscale-maintenance",
+        "namespace": "nexclipper",
+        "resourceVersion": "866542",
+        "uid": "c28ad677-47e8-43dd-ad83-e2c9c657fc64"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:00:17Z",
+      "message": "Deleted job nc-promscale-maintenance-1611120600",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:00:17Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "time": "2021-01-20T07:00:17Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance.165bde93bbb44110",
+        "namespace": "nexclipper",
+        "resourceVersion": "866544",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance.165bde93bbb44110",
+        "uid": "57b8e69f-7f3a-499a-b339-b2f3500a6a0c"
+      },
+      "reason": "SuccessfulDelete",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "cronjob-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:00:17Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1beta1",
+        "kind": "CronJob",
+        "name": "nc-promscale-maintenance",
+        "namespace": "nexclipper",
+        "resourceVersion": "866507",
+        "uid": "c28ad677-47e8-43dd-ad83-e2c9c657fc64"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:00:17Z",
+      "message": "Saw completed job: nc-promscale-maintenance-1611126000, status: Complete",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:00:17Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "time": "2021-01-20T07:00:17Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance.165bde93ba32587c",
+        "namespace": "nexclipper",
+        "resourceVersion": "866541",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance.165bde93ba32587c",
+        "uid": "4e0dc1ec-b7d3-4c94-9741-47856880ed20"
+      },
+      "reason": "SawCompletedJob",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "cronjob-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:30:01Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1beta1",
+        "kind": "CronJob",
+        "name": "nc-promscale-maintenance",
+        "namespace": "nexclipper",
+        "resourceVersion": "866542",
+        "uid": "c28ad677-47e8-43dd-ad83-e2c9c657fc64"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:30:01Z",
+      "message": "Created job nc-promscale-maintenance-1611127800",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:30:01Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "time": "2021-01-20T07:30:01Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance.165be032ef91d0c4",
+        "namespace": "nexclipper",
+        "resourceVersion": "869956",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance.165be032ef91d0c4",
+        "uid": "52f4ec94-f65b-4b35-a1bb-655dcfc37e36"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "cronjob-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:30:01Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1",
+        "kind": "Job",
+        "name": "nc-promscale-maintenance-1611127800",
+        "namespace": "nexclipper",
+        "resourceVersion": "869954",
+        "uid": "4570cb04-c749-4709-be6b-7949a808285f"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:30:01Z",
+      "message": "Created pod: nc-promscale-maintenance-1611127800-2z2sf",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:30:01Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "time": "2021-01-20T07:30:01Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance-1611127800.165be032f1c7fc9c",
+        "namespace": "nexclipper",
+        "resourceVersion": "869958",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance-1611127800.165be032f1c7fc9c",
+        "uid": "abaa72c5-8aea-4c77-861b-ffd4ae9d82dc"
+      },
+      "reason": "SuccessfulCreate",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "job-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "action": "Binding",
+      "apiVersion": "v1",
+      "eventTime": "2021-01-20T07:30:01.158190Z",
+      "firstTimestamp": null,
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "nc-promscale-maintenance-1611127800-2z2sf",
+        "namespace": "nexclipper",
+        "resourceVersion": "869957",
+        "uid": "bed50aee-65a0-4b07-b0a1-54c959d14851"
+      },
+      "kind": "Event",
+      "lastTimestamp": null,
+      "message": "Successfully assigned nexclipper/nc-promscale-maintenance-1611127800-2z2sf to docker-desktop",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:30:01Z",
+        "managedFields": [
+          {
+            "apiVersion": "events.k8s.io/v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:action": {},
+              "f:eventTime": {},
+              "f:note": {},
+              "f:reason": {},
+              "f:regarding": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:reportingController": {},
+              "f:reportingInstance": {},
+              "f:type": {}
+            },
+            "manager": "kube-scheduler",
+            "operation": "Update",
+            "time": "2021-01-20T07:30:01Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance-1611127800-2z2sf.165be032f3d1a074",
+        "namespace": "nexclipper",
+        "resourceVersion": "869960",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance-1611127800-2z2sf.165be032f3d1a074",
+        "uid": "e7f5f63a-b433-4c15-b92f-0649b3659f6f"
+      },
+      "reason": "Scheduled",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "default-scheduler-docker-desktop",
+      "source": {},
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:30:02Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{promscale-maintenance}",
+        "kind": "Pod",
+        "name": "nc-promscale-maintenance-1611127800-2z2sf",
+        "namespace": "nexclipper",
+        "resourceVersion": "869959",
+        "uid": "bed50aee-65a0-4b07-b0a1-54c959d14851"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:30:02Z",
+      "message": "Created container promscale-maintenance",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:30:02Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:fieldPath": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kubelet",
+            "operation": "Update",
+            "time": "2021-01-20T07:30:02Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance-1611127800-2z2sf.165be03354dccd94",
+        "namespace": "nexclipper",
+        "resourceVersion": "869967",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance-1611127800-2z2sf.165be03354dccd94",
+        "uid": "1bff2854-a2a7-44f5-8016-c84e63c838cf"
+      },
+      "reason": "Created",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "kubelet",
+        "host": "docker-desktop"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:30:02Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{promscale-maintenance}",
+        "kind": "Pod",
+        "name": "nc-promscale-maintenance-1611127800-2z2sf",
+        "namespace": "nexclipper",
+        "resourceVersion": "869959",
+        "uid": "bed50aee-65a0-4b07-b0a1-54c959d14851"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:30:02Z",
+      "message": "Container image \"postgres:12-alpine\" already present on machine",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:30:02Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:fieldPath": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kubelet",
+            "operation": "Update",
+            "time": "2021-01-20T07:30:02Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance-1611127800-2z2sf.165be0334549f5f0",
+        "namespace": "nexclipper",
+        "resourceVersion": "869966",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance-1611127800-2z2sf.165be0334549f5f0",
+        "uid": "9ce4051f-3de6-4a7f-b050-50143a51988b"
+      },
+      "reason": "Pulled",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "kubelet",
+        "host": "docker-desktop"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:30:03Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{promscale-maintenance}",
+        "kind": "Pod",
+        "name": "nc-promscale-maintenance-1611127800-2z2sf",
+        "namespace": "nexclipper",
+        "resourceVersion": "869959",
+        "uid": "bed50aee-65a0-4b07-b0a1-54c959d14851"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:30:03Z",
+      "message": "Started container promscale-maintenance",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:30:03Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:fieldPath": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kubelet",
+            "operation": "Update",
+            "time": "2021-01-20T07:30:03Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance-1611127800-2z2sf.165be033628db188",
+        "namespace": "nexclipper",
+        "resourceVersion": "869968",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance-1611127800-2z2sf.165be033628db188",
+        "uid": "98b66522-0fac-4f9a-bb4f-404e64ea3a45"
+      },
+      "reason": "Started",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "kubelet",
+        "host": "docker-desktop"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:30:03Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1",
+        "kind": "Job",
+        "name": "nc-promscale-maintenance-1611127800",
+        "namespace": "nexclipper",
+        "resourceVersion": "869961",
+        "uid": "4570cb04-c749-4709-be6b-7949a808285f"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:30:03Z",
+      "message": "Job completed",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:30:03Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "time": "2021-01-20T07:30:03Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance-1611127800.165be0338ca7d3e0",
+        "namespace": "nexclipper",
+        "resourceVersion": "869970",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance-1611127800.165be0338ca7d3e0",
+        "uid": "039b202c-5b09-480d-b506-7261549c20f1"
+      },
+      "reason": "Completed",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "job-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:30:04Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "nc-promscale-maintenance-1611127800-2z2sf",
+        "namespace": "nexclipper",
+        "resourceVersion": "869959",
+        "uid": "bed50aee-65a0-4b07-b0a1-54c959d14851"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:30:04Z",
+      "message": "Pod sandbox changed, it will be killed and re-created.",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:30:04Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kubelet",
+            "operation": "Update",
+            "time": "2021-01-20T07:30:04Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance-1611127800-2z2sf.165be033c7afcd1c",
+        "namespace": "nexclipper",
+        "resourceVersion": "869976",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance-1611127800-2z2sf.165be033c7afcd1c",
+        "uid": "f94e9dea-f3a8-4123-aba2-1c8f390a76af"
+      },
+      "reason": "SandboxChanged",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "kubelet",
+        "host": "docker-desktop"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:30:05Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "nc-promscale-maintenance-1611127800-2z2sf",
+        "namespace": "nexclipper",
+        "resourceVersion": "869959",
+        "uid": "bed50aee-65a0-4b07-b0a1-54c959d14851"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:30:05Z",
+      "message": "Failed create pod sandbox: rpc error: code = Unknown desc = failed to start sandbox container for pod \"nc-promscale-maintenance-1611127800-2z2sf\": Error response from daemon: OCI runtime create failed: container_linux.go:370: starting container process caused: process_linux.go:459: container init caused: Running hook #0:: error running hook: exit status 1, stdout: , stderr: time=\"2021-01-20T07:30:05Z\" level=fatal msg=\"no such file or directory\": unknown",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:30:05Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {},
+                "f:host": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kubelet",
+            "operation": "Update",
+            "time": "2021-01-20T07:30:05Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance-1611127800-2z2sf.165be033df552f84",
+        "namespace": "nexclipper",
+        "resourceVersion": "869977",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance-1611127800-2z2sf.165be033df552f84",
+        "uid": "3116f906-8514-4a91-92f1-2296301d2f88"
+      },
+      "reason": "FailedCreatePodSandBox",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "kubelet",
+        "host": "docker-desktop"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:30:11Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1beta1",
+        "kind": "CronJob",
+        "name": "nc-promscale-maintenance",
+        "namespace": "nexclipper",
+        "resourceVersion": "869955",
+        "uid": "c28ad677-47e8-43dd-ad83-e2c9c657fc64"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:30:11Z",
+      "message": "Saw completed job: nc-promscale-maintenance-1611127800, status: Complete",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:30:11Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "time": "2021-01-20T07:30:11Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance.165be03546066440",
+        "namespace": "nexclipper",
+        "resourceVersion": "869991",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance.165be03546066440",
+        "uid": "038791f8-e83f-4e43-8c5d-33659e3370b4"
+      },
+      "reason": "SawCompletedJob",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "cronjob-controller"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2021-01-20T07:30:11Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1beta1",
+        "kind": "CronJob",
+        "name": "nc-promscale-maintenance",
+        "namespace": "nexclipper",
+        "resourceVersion": "869992",
+        "uid": "c28ad677-47e8-43dd-ad83-e2c9c657fc64"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2021-01-20T07:30:11Z",
+      "message": "Deleted job nc-promscale-maintenance-1611122400",
+      "metadata": {
+        "creationTimestamp": "2021-01-20T07:30:11Z",
+        "managedFields": [
+          {
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:count": {},
+              "f:firstTimestamp": {},
+              "f:involvedObject": {
+                "f:apiVersion": {},
+                "f:kind": {},
+                "f:name": {},
+                "f:namespace": {},
+                "f:resourceVersion": {},
+                "f:uid": {}
+              },
+              "f:lastTimestamp": {},
+              "f:message": {},
+              "f:reason": {},
+              "f:source": {
+                "f:component": {}
+              },
+              "f:type": {}
+            },
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "time": "2021-01-20T07:30:11Z"
+          }
+        ],
+        "name": "nc-promscale-maintenance.165be035476debb4",
+        "namespace": "nexclipper",
+        "resourceVersion": "869994",
+        "selfLink": "/api/v1/namespaces/nexclipper/events/nc-promscale-maintenance.165be035476debb4",
+        "uid": "567201c4-c789-4ee6-aeff-66cd4079cf43"
+      },
+      "reason": "SuccessfulDelete",
+      "reportingComponent": "",
+      "reportingInstance": "",
+      "source": {
+        "component": "cronjob-controller"
+      },
+      "type": "Normal"
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": "",
+    "selfLink": ""
+  }
+}
