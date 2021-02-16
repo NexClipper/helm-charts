@@ -17,9 +17,9 @@ timescaledb-single:
   replicaCount: 1
   persistentVolumes:
     data:
-      size: 150Gi
+      size: 10Gi
     wal:
-      size: 20Gi
+      size: 10Gi
 
 # Values for configuring the deployment of the Promscale Connector
 # The charts README is at:
@@ -133,6 +133,8 @@ grafana:
       files:
         - dashboards/k8s-cluster.json
         - dashboards/k8s-hardware.json
+        - dashboards/1-kubernetes-all-in-one-cluster-monitoring-kr_rev1.json
+        - dashboards/node-exporter-for-prometheus-dashboard-en-v20201010_rev9.json
   envFromSecret: "{{ .Release.Name }}-grafana-db"
   initChownData:
     image:
@@ -181,9 +183,9 @@ promlens:
   # a load balancer for the connector, change as appropriate
   # NOTE: the internal cluster address does not work here as requests are made by the browser.
   defaultPrometheusUrl:  "http://localhost:9201"
-  licenseKey: "FT7YCAYBAEDUY2LDMVXHGZIB76BAAAIDAECEIYLUMEAQUAABAFJAD74EAAAQCUYB76CAAAAABL7YGBIBAL7YMAAAAD73Z74CAFIXWITFNVQWS3BCHIRGU2LOO5XW63THIBXGK6DDNRUXA4DFOIXGS3ZCFQRHMYLMNFSEM4TPNURDUMJWGA3TSNBSGQ2TMLBCOZQWY2LEKVXHI2LMEI5DCNRRGMZTINZSGAYH2AJRAI2MBC3H3OEAUKJOKIBKKUTTDY2VK62DXUXUVMTO64YZJMFS6EJPJZGHMXTSCEV5LVUEXKRWLTKPOYYBGEBNVH7UIYWPXG3GBU5KUSJBMX7Z3UJVHEAD346JGU2E4EAJBGOQ3UP4OAJUNRESYWQNUSWJOHYE5QITAA======"
+  licenseKey: ""
   license:
-    enabled: true
+    enabled: false
   loadBalancer:
     enabled: false
 
