@@ -3,7 +3,7 @@ entries:
   alertmanager:
   - apiVersion: v2
     appVersion: v0.21.0
-    created: "2021-02-16T21:13:39.129924+09:00"
+    created: "2021-02-16T21:23:49.482721+09:00"
     description: The Alertmanager handles alerts sent by client applications such
       as the Prometheus server.
     digest: 021cdbfcc1d223ce9241a9802ec5edb5b21cb040a4bf394efa127e3f86a18674
@@ -24,7 +24,7 @@ entries:
   grafana:
   - apiVersion: v2
     appVersion: 7.3.1
-    created: "2021-02-16T21:13:39.135694+09:00"
+    created: "2021-02-16T21:23:49.485788+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: 90e02611231bcfaaa9d59ac92fb93acd2cfa48c87b1816b303397f6a91bcfea7
     home: https://grafana.net
@@ -49,7 +49,7 @@ entries:
   prometheus:
   - apiVersion: v1
     appVersion: 2.21.0
-    created: "2021-02-16T21:13:39.140524+09:00"
+    created: "2021-02-16T21:23:49.492222+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -82,7 +82,7 @@ entries:
     version: 11.16.7
   promscale:
   - apiVersion: v2
-    created: "2021-02-16T21:13:39.141469+09:00"
+    created: "2021-02-16T21:23:49.493293+09:00"
     description: Promscale Connector deployment
     digest: 1fb1f9c5e9ec74c5e70ca0c2dd337d66b999a870b5259326f366b95ae06804ac
     name: promscale
@@ -92,7 +92,7 @@ entries:
   tobs:
   - apiVersion: v2
     appVersion: 0.2.0
-    created: "2021-02-16T21:13:39.164421+09:00"
+    created: "2021-02-16T21:23:49.515288+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -110,8 +110,8 @@ entries:
       name: grafana
       repository: https://nexclipper.github.io/helm-charts
       version: 6.1.0
-    description: NexClipper Helm chart for tobs, The Observability Stack for Kubernetes
-    digest: b89cac9a818e96491be63b1dc10f2d533c06ba674862d23062d4205a56be4adf
+    description: NexClipper(v3) Helm chart for tobs, The Observability Stack for Kubernetes
+    digest: 5152b56523b136bc89ab636351ff5759921f0fbbf48a716f36f7223d6b34fc94
     name: tobs
     type: application
     urls:
@@ -119,7 +119,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 0.1.4
-    created: "2021-02-16T21:13:39.153957+09:00"
+    created: "2021-02-16T21:23:49.503326+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -145,4 +145,4 @@ entries:
     urls:
     - tobs-0.1.4.tgz
     version: 0.1.4
-generated: "2021-02-16T21:13:39.127952+09:00"
+generated: "2021-02-16T21:23:49.479965+09:00"
