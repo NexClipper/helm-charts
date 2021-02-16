@@ -8,6 +8,7 @@ timescaledb-single:
   # disable the chart if an existing TimescaleDB instance is used
   enabled: true
   image:
+    repository: gcr.io/nexclipper/timescaledb-ha
     tag: pg12-ts1.7-latest
   # create only a ClusterIP service
   loadBalancer:
@@ -16,18 +17,16 @@ timescaledb-single:
   replicaCount: 1
   persistentVolumes:
     data:
-      storageClass: "rook-ceph-block"
-      size: 10Gi
+      size: 150Gi
     wal:
-      storageClass: "rook-ceph-block"
-      size: 2Gi
+      size: 20Gi
 
 # Values for configuring the deployment of the Promscale Connector
 # The charts README is at:
 #   https://github.com/timescale/promscale/tree/master/helm-chart
 promscale:
   enabled: true
-  image: timescale/promscale:0.1.1
+  image: gcr.io/nexclipper/promscale:0.1.4
   # connection options
   connection:
     # the db name in which the metrics will be stored
@@ -58,18 +57,36 @@ promscale:
       memory: 2Gi
       cpu: 1
 # Values for configuring the deployment of Prometheus
-# The stable/prometheus chart is used and the guide for it
-# can be found at:
-#   https://hub.helm.sh/charts/stable/prometheus
+# The Prometheus chart from the prometheus-community is used
+# the guide for it can be found at:
+#   https://artifacthub.io/packages/helm/prometheus-community/prometheus
+# with the default values documented at:
+#   https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml
 prometheus:
   enabled: true
+  nodeExporter:
+    image:
+      repository: quay.io/prometheus/node-exporter
+      tag: v1.0.1
   alertmanager:
-    enabled: false
+    enabled: true
+    image:
+      repository: quay.io/prometheus/alertmanager
+      tag: v0.21.0
   pushgateway:
-    enabled: false
+    image:
+      repository: quay.io/prometheus/pushgateway
+      tag: v1.2.0
+    enabled: true
+  configmapReload:
+    prometheus:
+      image:
+        repository: gcr.io/nexclipper/configmap-reload
+        tag: v0.4.0
   server:
-    persistentVolume:
-      storageClass: "rook-ceph-block"
+    image:
+      repository: quay.io/prometheus/prometheus
+      tag: v2.21.0
     # we provide a config map which will have the
     # promscale connector already configured as
     # a remote endpoint for read/write (if enabled)
@@ -95,12 +112,18 @@ prometheus:
         enabled: true
         # complete url = {protocol}://{host}:{port}/endpoint
         endpoint: "read"
+  #You can add other configs from https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml here
+  #For example, adding additional scrape jobs
+  #extraScrapeConfigs:
 
 # Values for configuring the deployment of Grafana
-# The stable/grafana chart is used and the guide for it
+# The Grafana Community chart is used and the guide for it
 # can be found at:
-#   https://hub.helm.sh/charts/stable/grafana
+#   https://github.com/grafana/helm-charts/blob/main/charts/grafana/README.md
 grafana:
+  image:
+    repository: gcr.io/nexclipper/grafana
+    tag: 7.3.1
   enabled: true
   sidecar:
     datasources:
@@ -111,6 +134,14 @@ grafana:
         - dashboards/k8s-cluster.json
         - dashboards/k8s-hardware.json
   envFromSecret: "{{ .Release.Name }}-grafana-db"
+  initChownData:
+    image:
+      repository: gcr.io/nexclipper/busybox
+      tag: "1.31.1"
+  sidecar:
+    image:
+      repository: gcr.io/nexclipper/k8s-sidecar
+      tag: 1.1.0
   prometheus:
     datasource:
       enabled: true
@@ -145,10 +176,15 @@ grafana:
 #PromLens is a PromQL query builder, analyzer, and visualizer
 promlens:
   enabled: true
-  image: "promlabs/promlens:latest"
+  image: "gcr.io/nexclipper/promlens:latest"
   # This default URL assumes access via port-forwarding to the connector. If using
   # a load balancer for the connector, change as appropriate
   # NOTE: the internal cluster address does not work here as requests are made by the browser.
   defaultPrometheusUrl:  "http://localhost:9201"
+  licenseKey: "FT7YCAYBAEDUY2LDMVXHGZIB76BAAAIDAECEIYLUMEAQUAABAFJAD74EAAAQCUYB76CAAAAABL7YGBIBAL7YMAAAAD73Z74CAFIXWITFNVQWS3BCHIRGU2LOO5XW63THIBXGK6DDNRUXA4DFOIXGS3ZCFQRHMYLMNFSEM4TPNURDUMJWGA3TSNBSGQ2TMLBCOZQWY2LEKVXHI2LMEI5DCNRRGMZTINZSGAYH2AJRAI2MBC3H3OEAUKJOKIBKKUTTDY2VK62DXUXUVMTO64YZJMFS6EJPJZGHMXTSCEV5LVUEXKRWLTKPOYYBGEBNVH7UIYWPXG3GBU5KUSJBMX7Z3UJVHEAD346JGU2E4EAJBGOQ3UP4OAJUNRESYWQNUSWJOHYE5QITAA======"
+  license:
+    enabled: true
   loadBalancer:
     enabled: false
+
+
