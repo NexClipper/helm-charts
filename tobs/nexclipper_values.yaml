@@ -135,7 +135,7 @@ grafana:
       files:
         - dashboards/k8s-cluster.json
         - dashboards/k8s-hardware.json
-        - dashboards/nc-cluster-kr.json
+        - dashboards/k8s-cluster-kr.json
   envFromSecret: "{{ .Release.Name }}-grafana-db"
   initChownData:
     image:
