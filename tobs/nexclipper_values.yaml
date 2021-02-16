@@ -124,14 +124,6 @@ grafana:
   image:
     repository: gcr.io/nexclipper/grafana
     tag: 7.3.1
-  dashboards:
-    default:
-      k8s-cluster:
-        url: https://raw.githubusercontent.com/NexClipper/helm-charts/main/tobs/dashboards/k8s-cluster.json
-      k8s-hardware:
-        url: https://raw.githubusercontent.com/NexClipper/helm-charts/main/tobs/dashboards/k8s-hardware.json
-      nc-cluster-kr:
-          url: https://raw.githubusercontent.com/NexClipper/helm-charts/main/tobs/dashboards/nc-cluster-kr.json
   sidecar:
     image:
       repository: gcr.io/nexclipper/k8s-sidecar
@@ -140,6 +132,10 @@ grafana:
       enabled: true
     dashboards:
       enabled: true
+      files:
+        - dashboards/k8s-cluster.json
+        - dashboards/k8s-hardware.json
+        - dashboards/nc-cluster-kr.json
   envFromSecret: "{{ .Release.Name }}-grafana-db"
   initChownData:
     image:
