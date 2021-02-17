@@ -8,7 +8,7 @@ timescaledb-single:
   # disable the chart if an existing TimescaleDB instance is used
   enabled: true
   image:
-    repository: gcr.io/nexclipper/timescaledb-ha
+    repository: public.ecr.aws/nexclipper/timescaledb-ha
     tag: pg12-ts1.7-latest
   # create only a ClusterIP service
   loadBalancer:
@@ -26,7 +26,7 @@ timescaledb-single:
 #   https://github.com/timescale/promscale/tree/master/helm-chart
 promscale:
   enabled: true
-  image: gcr.io/nexclipper/promscale:0.2.0
+  image: public.ecr.aws/nexclipper/promscale:0.2.0
   # connection options
   connection:
     # the db name in which the metrics will be stored
@@ -81,7 +81,7 @@ prometheus:
   configmapReload:
     prometheus:
       image:
-        repository: gcr.io/nexclipper/configmap-reload
+        repository: public.ecr.aws/nexclipper/configmap-reload
         tag: v0.4.0
   server:
     image:
@@ -122,11 +122,11 @@ prometheus:
 #   https://github.com/grafana/helm-charts/blob/main/charts/grafana/README.md
 grafana:
   image:
-    repository: gcr.io/nexclipper/grafana
+    repository: public.ecr.aws/nexclipper/grafana
     tag: 7.3.1
   sidecar:
     image:
-      repository: gcr.io/nexclipper/k8s-sidecar
+      repository: public.ecr.aws/nexclipper/k8s-sidecar
       tag: 1.1.0
     datasources:
       enabled: true
@@ -175,7 +175,7 @@ grafana:
 #PromLens is a PromQL query builder, analyzer, and visualizer
 promlens:
   enabled: true
-  image: "gcr.io/nexclipper/promlens:latest"
+  image: "public.ecr.aws/nexclipper/promlens:latest"
   # This default URL assumes access via port-forwarding to the connector. If using
   # a load balancer for the connector, change as appropriate
   # NOTE: the internal cluster address does not work here as requests are made by the browser.
