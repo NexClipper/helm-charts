@@ -18,7 +18,7 @@ spec:
         spec:
           containers:
           - name: {{ .Chart.Name }}-maintenance
-            image: gcr.io/nexclipper/postgres:12-alpine
+            image: postgres:12-alpine
             args:
             - sh
             - ./execute_maintenance.sh

@@ -1,4 +1,4 @@
-image: gcr.io/nexclipper/promscale:0.1.4
+image: timescale/promscale
 # number of connector pods to spawn
 replicaCount: 1
 

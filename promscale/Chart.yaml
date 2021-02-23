@@ -1,4 +1,4 @@
 apiVersion: v2
-description: Promscale Connector deployment
+description: Promscale Connector deployment at NexClipper
 name: promscale
-version: 0.1.4
+version: 0.2.0
