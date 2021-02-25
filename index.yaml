@@ -3,7 +3,7 @@ entries:
   alertmanager:
   - apiVersion: v2
     appVersion: v0.21.0
-    created: "2021-02-25T14:01:24.659838+09:00"
+    created: "2021-02-25T17:21:52.888218+09:00"
     description: The Alertmanager handles alerts sent by client applications such
       as the Prometheus server.
     digest: 021cdbfcc1d223ce9241a9802ec5edb5b21cb040a4bf394efa127e3f86a18674
@@ -24,7 +24,7 @@ entries:
   grafana:
   - apiVersion: v2
     appVersion: 7.3.1
-    created: "2021-02-25T14:01:24.662274+09:00"
+    created: "2021-02-25T17:21:52.891556+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: 90e02611231bcfaaa9d59ac92fb93acd2cfa48c87b1816b303397f6a91bcfea7
     home: https://grafana.net
@@ -47,16 +47,18 @@ entries:
     - grafana-6.1.0.tgz
     version: 6.1.0
   prometheus:
-  - apiVersion: v1
+  - annotations:
+      modified_by: nexclipper
+    apiVersion: v1
     appVersion: 2.21.0
-    created: "2021-02-25T14:01:24.668184+09:00"
+    created: "2021-02-25T17:21:52.897366+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
       repository: https://charts.helm.sh/stable/
       version: 2.8.*
     description: Prometheus is a monitoring system and time series database.
-    digest: db456bebd7b6ba0944bbc800e011b9abfa58a5ef24e954ff8de06355e66f7ed7
+    digest: e4bdca206960e0245404a4b25ffac6d60d4c1022207f6569a91ca8121ea801d1
     home: https://prometheus.io/
     icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
     maintainers:
@@ -85,7 +87,7 @@ entries:
       modified_by: nexclipper
     apiVersion: v1
     appVersion: 0.8.0
-    created: "2021-02-25T14:01:24.670589+09:00"
+    created: "2021-02-25T17:21:52.901389+09:00"
     description: A Helm chart for nexclipper postgres-exporter
     digest: 534a3e13a591fd063078ec92bfdcc4720f8361d03b6f00bc8046b5799c5c9812
     home: https://github.com/wrouesnel/postgres_exporter
@@ -106,7 +108,7 @@ entries:
     version: 1.10.0
   promscale:
   - apiVersion: v2
-    created: "2021-02-25T14:01:24.67333+09:00"
+    created: "2021-02-25T17:21:52.903131+09:00"
     description: Promscale Connector deployment at NexClipper
     digest: 6fe1230fd9ab1f09e224a085028a56f0a8d457f18e743b5dd6218d0b5da9241e
     name: promscale
@@ -114,7 +116,7 @@ entries:
     - promscale-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v2
-    created: "2021-02-25T14:01:24.67241+09:00"
+    created: "2021-02-25T17:21:52.902493+09:00"
     description: Promscale Connector deployment
     digest: 1fb1f9c5e9ec74c5e70ca0c2dd337d66b999a870b5259326f366b95ae06804ac
     name: promscale
@@ -126,7 +128,7 @@ entries:
       modified_by: nexclipper
     apiVersion: v2
     appVersion: 0.2.1
-    created: "2021-02-25T14:01:24.712133+09:00"
+    created: "2021-02-25T17:21:52.946921+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -158,7 +160,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 0.2.0
-    created: "2021-02-25T14:01:24.699055+09:00"
+    created: "2021-02-25T17:21:52.931667+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -185,7 +187,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 0.1.4
-    created: "2021-02-25T14:01:24.684886+09:00"
+    created: "2021-02-25T17:21:52.918591+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -211,4 +213,4 @@ entries:
     urls:
     - tobs-0.1.4.tgz
     version: 0.1.4
-generated: "2021-02-25T14:01:24.655926+09:00"
+generated: "2021-02-25T17:21:52.882006+09:00"
