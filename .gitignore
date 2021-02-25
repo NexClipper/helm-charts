@@ -3,4 +3,5 @@ alertmanager/*
 grafana/*
 prometheus/*
 promscale/*
-my_values.yml
+prometheus-postgres-exporter/*
+nexclipper-values.yaml
