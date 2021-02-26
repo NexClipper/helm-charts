@@ -95,6 +95,9 @@ prometheus:
     # a remote endpoint for read/write (if enabled)
     # this overrides the config map the prometheus chart
     # creates
+    global:
+      external_labels:
+        cluster_name: nexglobal
     configMapOverrideName: "prometheus-config"
     # values to be used in the override config map
     # for a Promscale remote_write and remote_read config
