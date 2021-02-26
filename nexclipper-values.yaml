@@ -17,9 +17,9 @@ timescaledb-single:
   replicaCount: 1
   persistentVolumes:
     data:
-      size: 100Gi
+      size: 10Gi
     wal:
-      size: 20Gi
+      size: 10Gi
 
 # Values for configuring the deployment of the Promscale Connector
 # The charts README is at:
@@ -51,14 +51,15 @@ promscale:
     loadBalancer:
       enabled: false
     nodePort:
-      enabled: true
+      enabled: false
       port: 30000 
+      
   resources:
     requests:
       # By default this should be enough for a cluster
       # with only a few pods
-      memory: 8Gi
-      cpu: 4
+      memory: 2Gi
+      cpu: 1
 # Values for configuring the deployment of Prometheus
 # The Prometheus chart from the prometheus-community is used
 # the guide for it can be found at:
@@ -188,5 +189,3 @@ promlens:
     enabled: false
   loadBalancer:
     enabled: false
-
-
