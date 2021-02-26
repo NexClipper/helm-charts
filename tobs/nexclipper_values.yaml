@@ -50,6 +50,10 @@ promscale:
     # will get created
     loadBalancer:
       enabled: false
+    nodePort:
+      enabled: false
+      port: 30000 
+      
   resources:
     requests:
       # By default this should be enough for a cluster
