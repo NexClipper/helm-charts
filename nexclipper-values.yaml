@@ -17,9 +17,11 @@ timescaledb-single:
   replicaCount: 1
   persistentVolumes:
     data:
-      size: 10Gi
+      enabled: false
+      # size: 10Gi
     wal:
-      size: 10Gi
+      enabled: false
+      # size: 10Gi
 
 # Values for configuring the deployment of the Promscale Connector
 # The charts README is at:
@@ -73,6 +75,8 @@ prometheus:
       repository: quay.io/prometheus/node-exporter
       tag: v1.0.1
   alertmanager:
+    persistentVolume:
+      enabled: false
     enabled: true
     image:
       repository: quay.io/prometheus/alertmanager
@@ -88,6 +92,8 @@ prometheus:
         repository: public.ecr.aws/nexclipper/configmap-reload
         tag: v0.4.0
   server:
+    persistentVolume:
+      enabled: false
     image:
       repository: quay.io/prometheus/prometheus
       tag: v2.21.0
