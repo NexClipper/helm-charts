@@ -3,7 +3,7 @@ entries:
   alertmanager:
   - apiVersion: v2
     appVersion: v0.21.0
-    created: "2021-03-03T10:28:01.714698+09:00"
+    created: "2021-03-11T16:49:13.071677+09:00"
     description: The Alertmanager handles alerts sent by client applications such
       as the Prometheus server.
     digest: 021cdbfcc1d223ce9241a9802ec5edb5b21cb040a4bf394efa127e3f86a18674
@@ -24,7 +24,7 @@ entries:
   grafana:
   - apiVersion: v2
     appVersion: 7.3.1
-    created: "2021-03-03T10:28:01.717073+09:00"
+    created: "2021-03-11T16:49:13.074523+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: 90e02611231bcfaaa9d59ac92fb93acd2cfa48c87b1816b303397f6a91bcfea7
     home: https://grafana.net
@@ -51,7 +51,7 @@ entries:
       modified_by: nexclipper
     apiVersion: v1
     appVersion: 2.21.0
-    created: "2021-03-03T10:28:01.72248+09:00"
+    created: "2021-03-11T16:49:13.079784+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -87,7 +87,7 @@ entries:
       modified_by: nexclipper
     apiVersion: v1
     appVersion: 0.8.0
-    created: "2021-03-03T10:28:01.724829+09:00"
+    created: "2021-03-11T16:49:13.08368+09:00"
     description: A Helm chart for nexclipper postgres-exporter
     digest: 534a3e13a591fd063078ec92bfdcc4720f8361d03b6f00bc8046b5799c5c9812
     home: https://github.com/wrouesnel/postgres_exporter
@@ -108,7 +108,7 @@ entries:
     version: 1.10.0
   promscale:
   - apiVersion: v2
-    created: "2021-03-03T10:28:01.726626+09:00"
+    created: "2021-03-11T16:49:13.085513+09:00"
     description: Promscale Connector deployment at NexClipper
     digest: 6fe1230fd9ab1f09e224a085028a56f0a8d457f18e743b5dd6218d0b5da9241e
     name: promscale
@@ -116,7 +116,7 @@ entries:
     - promscale-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v2
-    created: "2021-03-03T10:28:01.725752+09:00"
+    created: "2021-03-11T16:49:13.084699+09:00"
     description: Promscale Connector deployment
     digest: 1fb1f9c5e9ec74c5e70ca0c2dd337d66b999a870b5259326f366b95ae06804ac
     name: promscale
@@ -128,7 +128,7 @@ entries:
       modified_by: nexclipper
     apiVersion: v2
     appVersion: 0.2.1
-    created: "2021-03-03T10:28:01.761721+09:00"
+    created: "2021-03-11T16:49:13.127974+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -150,9 +150,9 @@ entries:
       name: prometheus-postgres-exporter
       repository: https://nexclipper.github.io/helm-charts
       version: 1.10.0
-    description: NexClipper(0225v3) Helm chart for tobs, The Observability Stack for
+    description: NexClipper(0311v1) Helm chart for tobs, The Observability Stack for
       Kubernetes
-    digest: 7f393122a72440e8e3cc3b05efce994353435b6700b6f55aac18bb3e74a5a36b
+    digest: 9582320c4483046e1e37c7129f61b8b4ad8c81f3096e494de8e87d59358b3fcd
     name: tobs
     type: application
     urls:
@@ -160,7 +160,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 0.2.0
-    created: "2021-03-03T10:28:01.751103+09:00"
+    created: "2021-03-11T16:49:13.114723+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -187,7 +187,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 0.1.4
-    created: "2021-03-03T10:28:01.73867+09:00"
+    created: "2021-03-11T16:49:13.098048+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -213,4 +213,4 @@ entries:
     urls:
     - tobs-0.1.4.tgz
     version: 0.1.4
-generated: "2021-03-03T10:28:01.712295+09:00"
+generated: "2021-03-11T16:49:13.069707+09:00"
