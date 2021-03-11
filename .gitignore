@@ -1,7 +1,1 @@
-tobs/*
-alertmanager/*
-grafana/*
-prometheus/*
-promscale/*
-prometheus-postgres-exporter/*
 nexclipper-values.yaml
