@@ -23,7 +23,7 @@ dependencies:
   name: prometheus-postgres-exporter
   repository: https://nexclipper.github.io/helm-charts
   version: 1.10.0
-description: NexClipper(0311v1) Helm chart for tobs, The Observability Stack for Kubernetes
+description: NexClipper(0311v2) Helm chart for tobs, The Observability Stack for Kubernetes
 name: tobs
 type: application
 version: 0.2.1
