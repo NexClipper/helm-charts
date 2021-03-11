@@ -1,0 +1,29 @@
+annotations:
+  modified_by: nexclipper
+apiVersion: v2
+appVersion: 0.2.1
+dependencies:
+- condition: timescaledb-single.enabled
+  name: timescaledb-single
+  repository: https://charts.timescale.com
+  version: 0.5.5
+- condition: promscale.enabled
+  name: promscale
+  repository: https://nexclipper.github.io/helm-charts
+  version: 0.1.4
+- condition: prometheus.enabled
+  name: prometheus
+  repository: https://nexclipper.github.io/helm-charts
+  version: 11.16.7
+- condition: grafana.enabled
+  name: grafana
+  repository: https://nexclipper.github.io/helm-charts
+  version: 6.1.0
+- condition: prometheus-postgres-exporter.enabled
+  name: prometheus-postgres-exporter
+  repository: https://nexclipper.github.io/helm-charts
+  version: 1.10.0
+description: NexClipper(0311v1) Helm chart for tobs, The Observability Stack for Kubernetes
+name: tobs
+type: application
+version: 0.2.1
