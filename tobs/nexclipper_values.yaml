@@ -131,6 +131,12 @@ prometheus:
 # can be found at:
 #   https://github.com/grafana/helm-charts/blob/main/charts/grafana/README.md
 grafana:
+  grafana.ini:
+    auth.proxy:
+      enabled: true
+      header_name: X-WEBAUTH-USE
+    users:
+      allow_sign_up: false      
   image:
     repository: public.ecr.aws/nexclipper/grafana
     tag: 7.3.1
