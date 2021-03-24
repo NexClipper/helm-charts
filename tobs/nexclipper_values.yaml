@@ -60,7 +60,7 @@ promscale:
     requests:
       # By default this should be enough for a cluster
       # with only a few pods
-      memory: 512Mi
+      memory: 1Gi
       cpu: 0.5
 # Values for configuring the deployment of Prometheus
 # The Prometheus chart from the prometheus-community is used
