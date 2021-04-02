@@ -81,7 +81,8 @@ prometheus:
     image:
       repository: quay.io/prometheus/alertmanager
       tag: v0.21.0
-    config:
+  alertmanagerFiles:
+    alertmanager.yml:
       route:
         # When a new group of alerts is created by an incoming alert, wait at
         # least 'group_wait' to send the initial notification.
@@ -131,6 +132,19 @@ prometheus:
       image:
         repository: public.ecr.aws/nexclipper/configmap-reload
         tag: v0.4.0
+  serverFiles:
+    alerting_rules.yml:
+      groups:
+      - name: ExampleRedisGroup
+        rules:
+        - alert: ExampleRedisDown
+          expr: redis_up{} == 0
+          for: 2m
+          labels:
+            severity: critical
+          annotations:
+            summary: "Redis instance down"
+            description: "Whatever"
   server:
     persistentVolume:
       enabled: false
@@ -162,19 +176,6 @@ prometheus:
         enabled: true
         # complete url = {protocol}://{host}:{port}/endpoint
         endpoint: "read"
-      serverFiles:
-        alerting_rules.yml:
-          groups:
-          - name: ExampleRedisGroup
-            rules:
-            - alert: ExampleRedisDown
-              expr: redis_up{} == 0
-              for: 2m
-              labels:
-                severity: critical
-              annotations:
-                summary: "Redis instance down"
-                description: "Whatever"
   #You can add other configs from https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml here
   #For example, adding additional scrape jobs
   #extraScrapeConfigs:
