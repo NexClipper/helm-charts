@@ -106,11 +106,6 @@ prometheus:
             match_re:
               severity: critical|warning
             continue: true
-          - receiver: "pager"
-            group_wait: 10s
-            match_re:
-              severity: critial
-            continue: true
       receivers:
         - name: "slack"
           slack_configs:
@@ -118,10 +113,6 @@ prometheus:
               send_resolved: true
               channel: 'monitoring'
               text: "{{ range .Alerts }}<!channel> {{ .Annotations.summary }}\n{{ .Annotations.description }}\n{{ end }}"
-        - name: "pager"
-          webhook_config:
-            - url: http://a.b.c.d:8080/send/sms
-              send_resolved: true
   pushgateway:
     image:
       repository: quay.io/prometheus/pushgateway
