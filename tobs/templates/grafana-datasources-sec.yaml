@@ -3,7 +3,7 @@
 {{- $tsEnabled := .Values.grafana.timescale.datasource.enabled -}}
 {{- $promEnabled := .Values.grafana.prometheus.datasource.enabled -}}
 {{- $lokiEnabled := .Values.grafana.loki.datasource.enabled -}}
-{{- $anyDataSources := or $tsEnabled $promEnabled -}}
+{{- $anyDataSources := or $tsEnabled $promEnabled $lokiEnabled -}}
 {{ if $anyDataSources -}}
 apiVersion: v1
 kind: Secret

@@ -211,6 +211,10 @@ grafana:
     image:
       repository: gcr.io/nexclipper/busybox
       tag: "1.31.1"
+  loki:
+    datasource:
+      enabled: true
+      url: "http://{{ .Release.Name }}-loki.{{ .Release.Namespace }}.svc.cluster.local:3100"
   prometheus:
     datasource:
       enabled: true
@@ -255,3 +259,4 @@ promlens:
     enabled: false
   loadBalancer:
     enabled: false
+
