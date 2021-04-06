@@ -21,6 +21,22 @@ timescaledb-single:
     wal:
       size: 10Gi
 
+loki-stack:
+  enabled: false
+  loki:
+    enabled: false
+  fluent-bit:
+    enabled: false
+  promtail:
+    enabled: false
+  grafana:
+    enabled: false
+    sidecar:
+      datasources:
+        enabled: false
+    image:
+      tag: 6.7.0
+
 # Values for configuring the deployment of the Promscale Connector
 # The charts README is at:
 #   https://github.com/timescale/promscale/tree/master/helm-chart
@@ -147,6 +163,10 @@ grafana:
     image:
       repository: gcr.io/nexclipper/busybox
       tag: "1.31.1"
+  loki:
+    datasource:
+      enabled: false
+      url: "http://{{ .Release.Name }}-loki.{{ .Release.Namespace }}.svc.cluster.local:3100"
   prometheus:
     datasource:
       enabled: true
