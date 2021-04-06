@@ -8,7 +8,7 @@ timescaledb-single:
   # disable the chart if an existing TimescaleDB instance is used
   enabled: true
   image:
-    repository: gcr.io/nexclipper/timescaledb-ha
+    repository: public.ecr.aws/nexclipper/timescaledb-ha
     tag: pg12-ts1.7-latest
   # create only a ClusterIP service
   loadBalancer:
@@ -17,16 +17,18 @@ timescaledb-single:
   replicaCount: 1
   persistentVolumes:
     data:
-      size: 10Gi
+      enabled: false
+      # size: 10Gi
     wal:
-      size: 10Gi
+      enabled: false
+      # size: 10Gi
 
 # Values for configuring the deployment of the Promscale Connector
 # The charts README is at:
 #   https://github.com/timescale/promscale/tree/master/helm-chart
 promscale:
   enabled: true
-  image: gcr.io/nexclipper/promscale:0.2.0
+  image: public.ecr.aws/nexclipper/promscale:0.2.0
   # connection options
   connection:
     # the db name in which the metrics will be stored
@@ -50,12 +52,16 @@ promscale:
     # will get created
     loadBalancer:
       enabled: false
+    nodePort:
+      enabled: false
+      port: 30000 
+      
   resources:
     requests:
       # By default this should be enough for a cluster
       # with only a few pods
-      memory: 2Gi
-      cpu: 1
+      memory: 1Gi
+      cpu: 0.5
 # Values for configuring the deployment of Prometheus
 # The Prometheus chart from the prometheus-community is used
 # the guide for it can be found at:
@@ -69,10 +75,44 @@ prometheus:
       repository: quay.io/prometheus/node-exporter
       tag: v1.0.1
   alertmanager:
+    persistentVolume:
+      enabled: false
     enabled: true
     image:
       repository: quay.io/prometheus/alertmanager
       tag: v0.21.0
+  alertmanagerFiles:
+    alertmanager.yml:
+      route:
+        # When a new group of alerts is created by an incoming alert, wait at
+        # least 'group_wait' to send the initial notification.
+        # This way ensures that you get multiple alerts for the same group that start
+        # firing shortly after another are batched together on the first
+        # notification.
+        group_wait: 10s
+        # When the first notification was sent, wait 'group_interval' to send a batch
+        # of new alerts that started firing for that group.
+        group_interval: 30s
+        # If an alert has successfully been sent, wait 'repeat_interval' to
+        # resend them.
+        repeat_interval: 30m
+        # A default receiver
+        receiver: "slack"
+        # All the above attributes are inherited by all child routes and can
+        # overwritten on each.
+        routes:
+          - receiver: "slack"
+            group_wait: 10s
+            match_re:
+              severity: critical|warning
+            continue: true
+      receivers:
+        - name: "slack"
+          slack_configs:
+            - api_url: 'https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXX/xxxxxxxxxxxxxxxxxxxxxxxxxxx'
+              send_resolved: true
+              channel: 'monitoring'
+              text: "{{ range .Alerts }}<!channel> {{ .Annotations.summary }}\n{{ .Annotations.description }}\n{{ end }}"
   pushgateway:
     image:
       repository: quay.io/prometheus/pushgateway
@@ -81,9 +121,33 @@ prometheus:
   configmapReload:
     prometheus:
       image:
-        repository: gcr.io/nexclipper/configmap-reload
+        repository: public.ecr.aws/nexclipper/configmap-reload
         tag: v0.4.0
+  serverFiles:
+    alerting_rules.yml:
+      groups:
+      - name: ExampleRedisGroup
+        rules:
+        - alert: ExampleRedisDown
+          expr: redis_up{} == 0
+          for: 2m
+          labels:
+            severity: critical
+          annotations:
+            summary: "Redis instance down"
+            description: "Whatever"
+    recording_rules.yml:
+      groups:
+      - name: example_recording_rules
+        interval: 60s
+        rules:
+          - record: node_exporter:node_filesystem_free:fs_used_percents
+            expr: 100 - 100 * ( node_filesystem_free{mountpoint="/"} / node_filesystem_size{mountpoint="/"} )
+          - record: node_exporter:node_memory_free:memory_used_percents
+            expr: 100 - 100 * (node_memory_MemFree / node_memory_MemTotal)
   server:
+    persistentVolume:
+      enabled: false
     image:
       repository: quay.io/prometheus/prometheus
       tag: v2.21.0
@@ -121,12 +185,18 @@ prometheus:
 # can be found at:
 #   https://github.com/grafana/helm-charts/blob/main/charts/grafana/README.md
 grafana:
+  grafana.ini:
+    auth.proxy:
+      enabled: true
+      header_name: X-WEBAUTH-USE
+    users:
+      allow_sign_up: false      
   image:
-    repository: gcr.io/nexclipper/grafana
+    repository: public.ecr.aws/nexclipper/grafana
     tag: 7.3.1
   sidecar:
     image:
-      repository: gcr.io/nexclipper/k8s-sidecar
+      repository: public.ecr.aws/nexclipper/k8s-sidecar
       tag: 1.1.0
     datasources:
       enabled: true
@@ -175,7 +245,7 @@ grafana:
 #PromLens is a PromQL query builder, analyzer, and visualizer
 promlens:
   enabled: true
-  image: "gcr.io/nexclipper/promlens:latest"
+  image: "public.ecr.aws/nexclipper/promlens:latest"
   # This default URL assumes access via port-forwarding to the connector. If using
   # a load balancer for the connector, change as appropriate
   # NOTE: the internal cluster address does not work here as requests are made by the browser.
@@ -185,5 +255,3 @@ promlens:
     enabled: false
   loadBalancer:
     enabled: false
-
-

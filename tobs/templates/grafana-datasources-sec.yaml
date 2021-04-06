@@ -2,6 +2,7 @@
 {{ if .Values.grafana.sidecar.datasources.enabled }}
 {{- $tsEnabled := .Values.grafana.timescale.datasource.enabled -}}
 {{- $promEnabled := .Values.grafana.prometheus.datasource.enabled -}}
+{{- $lokiEnabled := .Values.grafana.loki.datasource.enabled -}}
 {{- $anyDataSources := or $tsEnabled $promEnabled -}}
 {{ if $anyDataSources -}}
 apiVersion: v1
@@ -25,6 +26,13 @@ stringData:
         type: prometheus
         url: {{ tpl .Values.grafana.prometheus.datasource.url . }}
         isDefault: true
+        editable: true
+        access: proxy
+{{- end -}}
+{{- if $lokiEnabled }}
+      - name: Loki
+        type: loki
+        url: {{ tpl .Values.grafana.loki.datasource.url . }}
         editable: true
         access: proxy
 {{- end -}}
