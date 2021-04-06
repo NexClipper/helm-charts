@@ -3,7 +3,7 @@ entries:
   alertmanager:
   - apiVersion: v2
     appVersion: v0.21.0
-    created: "2021-04-06T17:52:07.804852+09:00"
+    created: "2021-04-06T18:13:49.84195+09:00"
     description: The Alertmanager handles alerts sent by client applications such
       as the Prometheus server.
     digest: 021cdbfcc1d223ce9241a9802ec5edb5b21cb040a4bf394efa127e3f86a18674
@@ -24,7 +24,7 @@ entries:
   grafana:
   - apiVersion: v2
     appVersion: 7.5.2
-    created: "2021-04-06T17:52:07.813203+09:00"
+    created: "2021-04-06T18:13:49.850301+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: cc57953a6756c4dd3f76bcfc7e9eb9fd445120042a2556bccc7153935df9bbd1
     home: https://grafana.net
@@ -50,7 +50,7 @@ entries:
     version: 6.7.2
   - apiVersion: v2
     appVersion: 7.4.2
-    created: "2021-04-06T17:52:07.809904+09:00"
+    created: "2021-04-06T18:13:49.847556+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: e0555d5cb8900c8a4d49b9fef778e21554d182a9ded0f37fd0bf842ddf4700a0
     home: https://grafana.net
@@ -76,7 +76,7 @@ entries:
     version: 6.4.4
   - apiVersion: v2
     appVersion: 7.3.1
-    created: "2021-04-06T17:52:07.80752+09:00"
+    created: "2021-04-06T18:13:49.844151+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: 90e02611231bcfaaa9d59ac92fb93acd2cfa48c87b1816b303397f6a91bcfea7
     home: https://grafana.net
@@ -98,10 +98,57 @@ entries:
     urls:
     - grafana-6.1.0.tgz
     version: 6.1.0
+  loki-stack:
+  - apiVersion: v1
+    appVersion: v2.1.0
+    created: "2021-04-06T18:13:49.862453+09:00"
+    dependencies:
+    - condition: loki.enabled
+      name: loki
+      repository: https://grafana.github.io/helm-charts
+      version: ^2.3.0
+    - condition: promtail.enabled
+      name: promtail
+      repository: https://grafana.github.io/helm-charts
+      version: ^2.2.0
+    - condition: fluent-bit.enabled
+      name: fluent-bit
+      repository: https://grafana.github.io/helm-charts
+      version: ^2.2.0
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: ~5.7.0
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: ~11.16.0
+    - condition: filebeat.enabled
+      name: filebeat
+      repository: https://helm.elastic.co
+      version: ~7.8.0
+    - condition: logstash.enabled
+      name: logstash
+      repository: https://helm.elastic.co
+      version: ~7.8.0
+    description: 'Loki: like Prometheus, but for logs.'
+    digest: 08eaa9cfed8323fd979d4c15f97dfa9139429b821d74dfcadfcdb847f2268e0e
+    home: https://grafana.com/loki
+    icon: https://raw.githubusercontent.com/grafana/loki/master/docs/sources/logo.png
+    kubeVersion: ^1.10.0-0
+    maintainers:
+    - email: lokiproject@googlegroups.com
+      name: Loki Maintainers
+    name: loki-stack
+    sources:
+    - https://github.com/grafana/loki
+    urls:
+    - loki-stack-2.3.1.tgz
+    version: 2.3.1
   prometheus:
   - apiVersion: v2
     appVersion: 2.24.0
-    created: "2021-04-06T17:52:07.83094+09:00"
+    created: "2021-04-06T18:13:49.876903+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -135,7 +182,7 @@ entries:
     version: 13.6.0
   - apiVersion: v2
     appVersion: 2.24.0
-    created: "2021-04-06T17:52:07.824382+09:00"
+    created: "2021-04-06T18:13:49.871601+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -171,7 +218,7 @@ entries:
       modified_by: nexclipper
     apiVersion: v1
     appVersion: 2.21.0
-    created: "2021-04-06T17:52:07.819678+09:00"
+    created: "2021-04-06T18:13:49.866531+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -207,7 +254,7 @@ entries:
       modified_by: nexclipper
     apiVersion: v1
     appVersion: 0.8.0
-    created: "2021-04-06T17:52:07.83203+09:00"
+    created: "2021-04-06T18:13:49.877981+09:00"
     description: A Helm chart for nexclipper postgres-exporter
     digest: 534a3e13a591fd063078ec92bfdcc4720f8361d03b6f00bc8046b5799c5c9812
     home: https://github.com/wrouesnel/postgres_exporter
@@ -228,7 +275,7 @@ entries:
     version: 1.10.0
   promscale:
   - apiVersion: v2
-    created: "2021-04-06T17:52:07.833029+09:00"
+    created: "2021-04-06T18:13:49.879457+09:00"
     description: Promscale Connector deployment at NexClipper
     digest: 6fe1230fd9ab1f09e224a085028a56f0a8d457f18e743b5dd6218d0b5da9241e
     name: promscale
@@ -236,7 +283,7 @@ entries:
     - promscale-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v2
-    created: "2021-04-06T17:52:07.832506+09:00"
+    created: "2021-04-06T18:13:49.878884+09:00"
     description: Promscale Connector deployment
     digest: 1fb1f9c5e9ec74c5e70ca0c2dd337d66b999a870b5259326f366b95ae06804ac
     name: promscale
@@ -248,7 +295,7 @@ entries:
       modified_by: nexclipper
     apiVersion: v2
     appVersion: 0.2.2
-    created: "2021-04-06T17:52:07.880157+09:00"
+    created: "2021-04-06T18:13:49.934551+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -270,9 +317,13 @@ entries:
       name: prometheus-postgres-exporter
       repository: https://nexclipper.github.io/helm-charts
       version: 1.10.0
-    description: NexClipper(0406v2) Helm chart for tobs, The Observability Stack for
+    - condition: loki-stack.enabled
+      name: loki-stack
+      repository: https://nexclipper.github.io/helm-charts
+      version: 2.3.1
+    description: NexClipper(0406v3) Helm chart for tobs, The Observability Stack for
       Kubernetes
-    digest: b9952b8c80cafe37aeac065a73431186b0f4f479b12cb5199cb53eeb3a3b12d4
+    digest: d02b1c1f17e4f5093be9a98eb62c8c9a903e23f82047b42cad4afac0c31bea45
     name: tobs
     type: application
     urls:
@@ -282,7 +333,7 @@ entries:
       modified_by: nexclipper
     apiVersion: v2
     appVersion: 0.2.1
-    created: "2021-04-06T17:52:07.86804+09:00"
+    created: "2021-04-06T18:13:49.91314+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -314,7 +365,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 0.2.0
-    created: "2021-04-06T17:52:07.854808+09:00"
+    created: "2021-04-06T18:13:49.901917+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -341,7 +392,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 0.1.4
-    created: "2021-04-06T17:52:07.843181+09:00"
+    created: "2021-04-06T18:13:49.889905+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -367,4 +418,4 @@ entries:
     urls:
     - tobs-0.1.4.tgz
     version: 0.1.4
-generated: "2021-04-06T17:52:07.80256+09:00"
+generated: "2021-04-06T18:13:49.840736+09:00"

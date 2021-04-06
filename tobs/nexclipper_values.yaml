@@ -23,6 +23,22 @@ timescaledb-single:
       enabled: false
       # size: 10Gi
 
+loki-stack:
+  enabled: true
+  loki:
+    enabled: true
+  fluent-bit:
+    enabled: true
+  promtail:
+    enabled: false
+  grafana:
+    enabled: false
+    sidecar:
+      datasources:
+        enabled: false
+    image:
+      tag: 6.7.0
+
 # Values for configuring the deployment of the Promscale Connector
 # The charts README is at:
 #   https://github.com/timescale/promscale/tree/master/helm-chart
