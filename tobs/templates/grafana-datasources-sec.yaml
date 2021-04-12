@@ -38,24 +38,28 @@ stringData:
 {{- end -}}
 {{ if $tsEnabled -}}
 {{- $isDefault := not $promEnabled -}}
-{{- $host := tpl .Values.grafana.timescale.database.host $ -}}
-{{- $port := .Values.grafana.timescale.database.port | int -}}
-{{ with .Values.grafana.timescale.datasource }}
+{{- $hostURL := "" -}}
+{{ if .Values.timescaledbExternal.enabled -}}
+  {{- $hostURL = include "tobs.dburi.host" . -}}
+{{ else -}}
+  {{- $host := tpl .Values.grafana.timescale.database.host $ -}}
+  {{- $port := .Values.grafana.timescale.database.port | int -}}
+  {{- $hostURL = printf "%s:%d" $host $port -}}
+{{ end }}
       - name: TimescaleDB
-        url: {{ printf "%s:%d" $host $port }}
+        url: {{ $hostURL }}
         type: postgres
         isDefault: {{ $isDefault }}
         access: proxy
-        user: {{ .user }}
-        database: {{ .dbName }}
+        user: {{ ternary (include "tobs.dburi.user" . ) (.Values.grafana.timescale.database.user ) (.Values.timescaledbExternal.enabled) }}
+        database: {{ ternary (include "tobs.dburi.dbname" . ) (.Values.grafana.timescale.database.dbName ) (.Values.timescaledbExternal.enabled) }}
         editable: true
         secureJsonData:
-          password: {{ .pass }}
+          password: {{ ternary (include "tobs.dburi.password" . ) (.Values.grafana.timescale.database.pass ) (.Values.timescaledbExternal.enabled) }}
         jsonData:
-          sslmode: {{ .sslMode }}
+          sslmode: {{ ternary (include "tobs.dburi.sslmode" . ) (.Values.grafana.timescale.database.sslMode ) (.Values.timescaledbExternal.enabled) }}
           postgresVersion: 1000
           timescaledb: true
-{{- end -}}
 {{- end -}}
 {{- end -}}
 {{- end -}}

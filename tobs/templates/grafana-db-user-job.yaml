@@ -12,44 +12,45 @@ metadata:
 spec:
   template:
     spec:
-{{- $vals := .Values -}}
-{{- with .Values.grafana.timescale }}
       containers:
-        - name: {{ $.Chart.Name }}-grafana-db
-          image: postgres:12-alpine
-          volumeMounts:
-            - name: sql-volume
-              mountPath: /add-users.sql
-              subPath: add-users.sql
-          env:
-            - name: PGPORT
-              value: {{ .database.port | quote }}
-            - name: PGUSER
-              value: {{ .adminUser }}
-            - name: PGPASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: {{ tpl .adminPassSecret $ }}
-                  key: {{ .adminUser }}
-            - name: PGHOST
-              value: {{ tpl .database.host $ }}
-          command: ['psql', '-d', {{ .database.dbName }}, '-f', '/add-users.sql']
+      - name: {{ $.Chart.Name }}-grafana-db
+        image: postgres:12-alpine
+        volumeMounts:
+        - name: sql-volume
+          mountPath: /add-users.sql
+          subPath: add-users.sql
+        env:
+        - name: PGPORT
+          value: {{ ternary (include "tobs.dburi.port" . | quote ) (.Values.grafana.timescale.database.port | quote ) (.Values.timescaledbExternal.enabled) }}
+        - name: PGUSER
+          value: {{ ternary (include "tobs.dburi.user" . ) (.Values.grafana.timescale.adminUser ) (.Values.timescaledbExternal.enabled) }}
+        - name: PGPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ tpl .Values.grafana.timescale.adminPassSecret $ }}
+              key: PATRONI_SUPERUSER_PASSWORD
+        - name: PGHOST
+          value: {{ ternary (include "tobs.dburi.hostwithoutport" . ) ( tpl .Values.grafana.timescale.database.host $ ) (.Values.timescaledbExternal.enabled) }}
+        command: [ 'psql', '-d', {{ ternary (include "tobs.dburi.dbname" . ) (.Values.grafana.timescale.database.dbName ) (.Values.timescaledbExternal.enabled) }}, '-f', '/add-users.sql' ]
+        {{ if .Values.grafanaDBJob.resources }}
+        resources:
+          {{ toYaml .Values.grafanaDBJob.resources | nindent 14 }}
+        {{ end }}
       restartPolicy: OnFailure
       volumes:
-        - name: sql-volume
-          configMap:
-            name: {{ $.Release.Name }}-grafana-db
+      - name: sql-volume
+        configMap:
+          name: {{ $.Release.Name }}-grafana-db
       initContainers:
-        - name: init-db
-          image: busybox:1.28
-          volumeMounts:
-            - name: sql-volume
-              mountPath: /wait-for-ts.sh
-              subPath: wait-for-ts.sh
-          env:
-            - name: PGHOST
-              value: {{ tpl .database.host $ }}
-          command: ['sh', '/wait-for-ts.sh']
-{{- end -}}
+      - name: init-db
+        image: busybox:1.28
+        volumeMounts:
+        - name: sql-volume
+          mountPath: /wait-for-ts.sh
+          subPath: wait-for-ts.sh
+        env:
+        - name: PGHOST
+          value: {{ ternary (include "tobs.dburi.hostwithoutport" . ) ( tpl .Values.grafana.timescale.database.host $ ) (.Values.timescaledbExternal.enabled) }}
+        command: [ 'sh', '/wait-for-ts.sh' ]
 {{- end -}}
 {{- end -}}

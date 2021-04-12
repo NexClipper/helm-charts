@@ -7,6 +7,7 @@ A Helm chart for deploying Prometheus configured to use TimescaleDB as compresse
   * **[Cleanup](#cleanup)**
     * [TimescaleDB PVCs and Backup](#timescaledb-pvcs-and-backup)
     * [TimescaleDB config service](#timescaledb-config-service)
+    * [Connecting to External TimescaleDB](#timescaledb-external-integration)
 * **[Configuring Helm Chart](#configuring-helm-chart)**
   * **[TimescaleDB related values](#timescaledb-related-values)**
     * [Additional configuration for TimescaleDB](#additional-configuration-for-timescaledb)
@@ -85,6 +86,7 @@ The chart has the following properties in the `values.yaml` file:
 | `timescaledb-single.image.tag`                      | Docker image tag to use for TimescaleDB               | `pg12-ts1.7`|
 | `timescaledb-single.loadBalancer.enabled`           | Create a LB for the DB instead of a ClusterIP         | `false`     |
 | `timescaledb-single.replicaCount`                   | Number of pods for DB, set to 3 for HA                | `1`         |
+| `timescaledb-single.backup.enabled`                 | TimescaleDB backup option by default set to false     | `false`     |
 
 ### Additional configuration for TimescaleDB
 
@@ -94,6 +96,17 @@ interested in a replicated setup for high-availability with automated backups, p
 
 You can set up the credentials, nodeSelector, volume sizes (default volumes created are 1GB for WAL and 2GB for storage).
 
+### Configuring External TimescaleDB
+
+To configure tobs to connect with an external TimescaleDB you need to modify few fields in the default values.yaml while performing the installation
+
+Below is the helm command to disable TimescaleDB installation and to set external db uri details:
+```
+helm install <release-name> timescale/tobs \
+--set timescaledb-single.enabled=false,timescaledbExternal.enabled=true,timescaledbExternal.db_uri=<timescaledb-uri>, \
+promscale.connection.uri.secretTemplate=<release-name>-timescaledb-uri
+```
+
 ## Promscale related values
 | Parameter                                           | Description                                           | Default     |
 |-----------------------------------------------------|-------------------------------------------------------|-------------|
@@ -101,7 +114,8 @@ You can set up the credentials, nodeSelector, volume sizes (default volumes crea
 | `promscale.image`                        | Docker image to use for the Connector                 | `timescale/promscale:0.1.0-alpha.2` |
 | `promscale.connection.dbName`            | Database to store the metrics in                      | `postgres`  |
 | `promscale.connection.user`              | User used for connection to db | `postgres` |
-| `promscale.connection.password.secretTemplate` | Name (templated) of secret object containing the connection password. Key must be value of `promscale.connection.user`. Defaults to secret created by timescaledb-single chart | `"{{ .Release.Name }}-timescaledb-passwords"` |
+| `promscale.connection.dbURI.secretTemplate` | The template for generating the name of a secret object which will hold the db URI | `` |
+| `promscale.connection.password.secretTemplate` | Name (templated) of secret object containing the connection password. Key must be value of `PATRONI_SUPERUSER_PASSWORD` as this is used in TimescaleDB helm chart as reference to user `postgres`. | `"{{ .Release.Name }}-credentials"` |
 | `promscale.connection.host.nameTemplate` | Host name (templated) of the database instance. Defaults to service created in `timescaledb-single` | `"{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local"` |
 | `promscale.service.loadBalancer.enabled` | Create a LB for the connector instead of a Cluster IP | `false`     |
 | `promscale.resources.requests.memory`    | Amount of memory for the Connector pod                | `2Gi`       |
@@ -174,7 +188,7 @@ For more information about the `remote_write` configuration that can be set with
 | `grafana.timescale.datasource.dbName` | Database storing the metrics (Should be same with `promscale.connection.dbName`) | `postgres` |
 | `grafana.timescale.datasource.sslMode` | SSL mode for connection | `require` |
 | `grafana.timescale.adminUser`                | Admin user to create the users and schemas with | `postgres` |
-| `grafana.timescale.adminPassSecret`      | Name (templated) of secret containing password for admin user | `"{{ .Release.Name }}-timescaledb-passwords"` |
+| `grafana.timescale.adminPassSecret`      | Name (templated) of secret containing password for admin user | `"{{ .Release.Name }}-credentials"` |
 
 ### TimescaleDB user for the Grafana Database
 
