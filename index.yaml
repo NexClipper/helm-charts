@@ -3,7 +3,7 @@ entries:
   alertmanager:
   - apiVersion: v2
     appVersion: v0.21.0
-    created: "2021-04-16T13:46:46.381221+09:00"
+    created: "2021-04-16T17:05:53.951603+09:00"
     description: The Alertmanager handles alerts sent by client applications such
       as the Prometheus server.
     digest: 021cdbfcc1d223ce9241a9802ec5edb5b21cb040a4bf394efa127e3f86a18674
@@ -24,7 +24,7 @@ entries:
   grafana:
   - apiVersion: v2
     appVersion: 7.5.2
-    created: "2021-04-16T13:46:46.390294+09:00"
+    created: "2021-04-16T17:05:53.958913+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: cc57953a6756c4dd3f76bcfc7e9eb9fd445120042a2556bccc7153935df9bbd1
     home: https://grafana.net
@@ -50,7 +50,7 @@ entries:
     version: 6.7.2
   - apiVersion: v2
     appVersion: 7.4.2
-    created: "2021-04-16T13:46:46.387599+09:00"
+    created: "2021-04-16T17:05:53.956025+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: e0555d5cb8900c8a4d49b9fef778e21554d182a9ded0f37fd0bf842ddf4700a0
     home: https://grafana.net
@@ -76,7 +76,7 @@ entries:
     version: 6.4.4
   - apiVersion: v2
     appVersion: 7.3.1
-    created: "2021-04-16T13:46:46.385117+09:00"
+    created: "2021-04-16T17:05:53.953775+09:00"
     description: The leading tool for querying and visualizing time series and metrics.
     digest: 90e02611231bcfaaa9d59ac92fb93acd2cfa48c87b1816b303397f6a91bcfea7
     home: https://grafana.net
@@ -101,7 +101,7 @@ entries:
   loki-stack:
   - apiVersion: v1
     appVersion: v2.1.0
-    created: "2021-04-16T13:46:46.402053+09:00"
+    created: "2021-04-16T17:05:53.970413+09:00"
     dependencies:
     - condition: loki.enabled
       name: loki
@@ -148,7 +148,7 @@ entries:
   prometheus:
   - apiVersion: v2
     appVersion: 2.26.0
-    created: "2021-04-16T13:46:46.421721+09:00"
+    created: "2021-04-16T17:05:53.990917+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -182,7 +182,7 @@ entries:
     version: 13.7.0
   - apiVersion: v2
     appVersion: 2.24.0
-    created: "2021-04-16T13:46:46.417113+09:00"
+    created: "2021-04-16T17:05:53.985928+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -216,7 +216,7 @@ entries:
     version: 13.6.0
   - apiVersion: v2
     appVersion: 2.24.0
-    created: "2021-04-16T13:46:46.412094+09:00"
+    created: "2021-04-16T17:05:53.980668+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -252,7 +252,7 @@ entries:
       modified_by: nexclipper
     apiVersion: v1
     appVersion: 2.21.0
-    created: "2021-04-16T13:46:46.408066+09:00"
+    created: "2021-04-16T17:05:53.976367+09:00"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
@@ -285,7 +285,7 @@ entries:
     version: 11.16.7
   promscale:
   - apiVersion: v2
-    created: "2021-04-16T13:46:46.424484+09:00"
+    created: "2021-04-16T17:05:53.994049+09:00"
     description: Promscale Connector deployment
     digest: d3616bfbd92534abf1d766599b5b44bae141f5415249b97c84005bb539f196cd
     name: promscale
@@ -293,7 +293,7 @@ entries:
     - promscale-0.3.0.tgz
     version: 0.3.0
   - apiVersion: v2
-    created: "2021-04-16T13:46:46.423672+09:00"
+    created: "2021-04-16T17:05:53.993253+09:00"
     description: Promscale Connector deployment at NexClipper
     digest: 6fe1230fd9ab1f09e224a085028a56f0a8d457f18e743b5dd6218d0b5da9241e
     name: promscale
@@ -301,7 +301,7 @@ entries:
     - promscale-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v2
-    created: "2021-04-16T13:46:46.42291+09:00"
+    created: "2021-04-16T17:05:53.992458+09:00"
     description: Promscale Connector deployment
     digest: 1fb1f9c5e9ec74c5e70ca0c2dd337d66b999a870b5259326f366b95ae06804ac
     name: promscale
@@ -310,7 +310,7 @@ entries:
     version: 0.1.4
   timescaledb-single:
   - apiVersion: v1
-    created: "2021-04-16T13:46:46.428106+09:00"
+    created: "2021-04-16T17:05:53.997469+09:00"
     description: TimescaleDB HA Deployment.
     digest: a976fc399539e012942a3e55dce1d735c5c36bb4678e57a66ac7d280c8bfceb9
     home: https://github.com/timescale/timescaledb-kubernetes
@@ -330,7 +330,7 @@ entries:
       modified_by: nexclipper
     apiVersion: v2
     appVersion: 0.3.0
-    created: "2021-04-16T13:46:46.502542+09:00"
+    created: "2021-04-16T17:05:54.077421+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -352,8 +352,8 @@ entries:
       name: loki-stack
       repository: https://nexclipper.github.io/helm-charts
       version: 2.3.1
-    description: NexClipper(0416) Helm chart for tobs included Loki
-    digest: c1d053c74718139d3f6ffeb1e3f32ed5b13a8325ced6bd5c628e5f488a0cfd21
+    description: NexClipper(0416v2) Helm chart for tobs included Loki
+    digest: 7d0cb8ff5f66cde61c463de017ebb963770e3a502ba1fc8276bfad0fffe1bcb6
     name: tobs
     type: application
     urls:
@@ -363,7 +363,7 @@ entries:
       modified_by: nexclipper
     apiVersion: v2
     appVersion: 0.2.2
-    created: "2021-04-16T13:46:46.48102+09:00"
+    created: "2021-04-16T17:05:54.055632+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -401,7 +401,7 @@ entries:
       modified_by: nexclipper
     apiVersion: v2
     appVersion: 0.2.1
-    created: "2021-04-16T13:46:46.460122+09:00"
+    created: "2021-04-16T17:05:54.032982+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -433,7 +433,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 0.2.0
-    created: "2021-04-16T13:46:46.44946+09:00"
+    created: "2021-04-16T17:05:54.02187+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -460,7 +460,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 0.1.4
-    created: "2021-04-16T13:46:46.438242+09:00"
+    created: "2021-04-16T17:05:54.008457+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -491,7 +491,7 @@ entries:
       modified_by: nexclipper
     apiVersion: v2
     appVersion: 0.3.0
-    created: "2021-04-16T13:46:46.525097+09:00"
+    created: "2021-04-16T17:05:54.101331+09:00"
     dependencies:
     - condition: timescaledb-single.enabled
       name: timescaledb-single
@@ -521,4 +521,4 @@ entries:
     urls:
     - tobs-dev-0.3.0.tgz
     version: 0.3.0
-generated: "2021-04-16T13:46:46.379256+09:00"
+generated: "2021-04-16T17:05:53.948431+09:00"

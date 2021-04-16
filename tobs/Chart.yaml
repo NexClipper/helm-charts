@@ -23,7 +23,7 @@ dependencies:
   name: loki-stack
   repository: https://nexclipper.github.io/helm-charts
   version: 2.3.1
-description: NexClipper(0416) Helm chart for tobs included Loki
+description: NexClipper(0416v2) Helm chart for tobs included Loki
 name: tobs
 type: application
 version: 0.3.0
