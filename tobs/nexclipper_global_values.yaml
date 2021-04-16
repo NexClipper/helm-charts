@@ -243,6 +243,7 @@ grafana:
         - dashboards/k8s-cluster.json
         - dashboards/k8s-hardware.json
         - dashboards/k8s-cluster-kr.json
+        - dashboards/node-exporter.json
   envFromSecret: "{{ .Release.Name }}-grafana-db"
   initChownData:
     image:
