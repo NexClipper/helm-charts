@@ -102,7 +102,7 @@ prometheus:
     image:
       repository: quay.io/prometheus/node-exporter
       tag: v1.0.1
-    hostRootFsMount: true
+    hostRootFsMount: false
   alertmanager:
     persistentVolume:
       enabled: false
