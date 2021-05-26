@@ -9,12 +9,24 @@ timescaledb-single:
   enabled: true
   image:
     repository: public.ecr.aws/nexclipper/timescaledb-ha
-    tag: pg12-ts1.7-latest
+    tag: pg12-ts2.1-latest
   # create only a ClusterIP service
   loadBalancer:
     enabled: false
   # number or TimescaleDB pods to spawn (default is 3, 1 for no HA)
   replicaCount: 1
+    # backup is disabled by default, enable it
+  # if you want to backup timescaleDB to s3
+  # you can provide the s3 details on tobs install
+  # in the user prompt or you can set s3 details in the
+  # env variables for the following keys:
+  # PGBACKREST_REPO1_S3_BUCKET
+  # PGBACKREST_REPO1_S3_ENDPOINT
+  # PGBACKREST_REPO1_S3_REGION
+  # PGBACKREST_REPO1_S3_KEY
+  # PGBACKREST_REPO1_S3_KEY_SECRET
+  backup:
+    enabled: false
   persistentVolumes:
     data:
       enabled: false
@@ -44,7 +56,7 @@ loki-stack:
 #   https://github.com/timescale/promscale/tree/master/helm-chart
 promscale:
   enabled: true
-  image: public.ecr.aws/nexclipper/promscale:0.2.0
+  image: public.ecr.aws/nexclipper/promscale:0.3.0
   # connection options
   connection:
     # the db name in which the metrics will be stored
@@ -55,7 +67,8 @@ promscale:
       # Name of a secret object (templated) containing the connection password
       # Key must be value of promscale.connection.user
       # Created by default if timescaledb-single.enabled=true
-      secretTemplate: &dbPassSecret "{{ .Release.Name }}-timescaledb-passwords"
+      secretTemplate: &dbPassSecret "{{ .Release.Name }}-credentials"
+      timescaleDBSuperUserKey: PATRONI_SUPERUSER_PASSWORD
     host:
       # Host name (templated) of the database instance, default
       # to service created in timescaledb-single
@@ -71,7 +84,6 @@ promscale:
     nodePort:
       enabled: false
       port: 30000 
-      
   resources:
     requests:
       # By default this should be enough for a cluster
@@ -90,6 +102,7 @@ prometheus:
     image:
       repository: quay.io/prometheus/node-exporter
       tag: v1.0.1
+    hostRootFsMount: false
   alertmanager:
     persistentVolume:
       enabled: false
@@ -138,7 +151,7 @@ prometheus:
     prometheus:
       image:
         repository: public.ecr.aws/nexclipper/configmap-reload
-        tag: v0.4.0
+        tag: v0.5.0
   serverFiles:
     alerting_rules.yml:
       groups:
@@ -162,11 +175,16 @@ prometheus:
           - record: node_exporter:node_memory_free:memory_used_percents
             expr: 100 - 100 * (node_memory_MemFree / node_memory_MemTotal)
   server:
+    # during the upgrades rollingUpdate is creating chaos
+    # as both old & new pod try to mount same PVC. So we use
+    # Prometheus upgrade strategy as Recreate
+    strategy:
+      type: Recreate
     persistentVolume:
       enabled: false
     image:
       repository: quay.io/prometheus/prometheus
-      tag: v2.21.0
+      tag: v2.24.0
     # we provide a config map which will have the
     # promscale connector already configured as
     # a remote endpoint for read/write (if enabled)
@@ -192,9 +210,15 @@ prometheus:
         enabled: true
         # complete url = {protocol}://{host}:{port}/endpoint
         endpoint: "read"
+        read_recent: true
   #You can add other configs from https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml here
   #For example, adding additional scrape jobs
-  #extraScrapeConfigs:
+  #extraScrapeConfigs: |
+    #example of adding hypotetical scrape job for https://github.com/AICoE/prometheus-anomaly-detector
+    #- job_name: prometheus-anomaly
+    #  static_configs:
+    #    - targets:
+    #      - prometheus-anomaly-svc.default:8080
 
 # Values for configuring the deployment of Grafana
 # The Grafana Community chart is used and the guide for it
@@ -209,11 +233,11 @@ grafana:
       allow_sign_up: false      
   image:
     repository: public.ecr.aws/nexclipper/grafana
-    tag: 7.3.1
+    tag: 7.4.2
   sidecar:
     image:
       repository: public.ecr.aws/nexclipper/k8s-sidecar
-      tag: 1.1.0
+      tag: 1.10.6
     datasources:
       enabled: true
     dashboards:
@@ -222,11 +246,12 @@ grafana:
         - dashboards/k8s-cluster.json
         - dashboards/k8s-hardware.json
         - dashboards/k8s-cluster-kr.json
+        - dashboards/node-exporter.json
   envFromSecret: "{{ .Release.Name }}-grafana-db"
   initChownData:
     image:
-      repository: gcr.io/nexclipper/busybox
-      tag: "1.31.1"
+      repository: public.ecr.aws/nexclipper/busybox
+      tag: "1.28"
   loki:
     datasource:
       enabled: true
@@ -261,6 +286,9 @@ grafana:
     adminUser: postgres
     adminPassSecret: *dbPassSecret
 
+grafanaDBJob:
+  resources: {}
+
 #Enable PromLens  https://promlens.com/
 #PromLens is a PromQL query builder, analyzer, and visualizer
 promlens:
@@ -276,3 +304,7 @@ promlens:
   loadBalancer:
     enabled: false
 
+#Enable Promscale to connect to an existing database by providing the db-uri
+timescaledbExternal:
+  enabled: false
+  db_uri: ""
