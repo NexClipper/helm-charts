@@ -227,9 +227,8 @@ prometheus:
       - role: endpoints
       relabel_configs:
       - action: keep
-        regex: nexclipper;exporterhub
+        regex: exporterhub
         source_labels:
-        - __meta_kubernetes_namespace
         - __meta_kubernetes_pod_label_managed
       - action: replace
         source_labels: [__meta_kubernetes_pod_label_app]
